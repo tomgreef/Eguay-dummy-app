@@ -9,12 +9,59 @@
     <title>Formulario</title>
 </head>
 
+<style>
+    .gridInputLabel {
+        display: grid;
+        grid-template-columns: repeat(2, 200px);
+    }
+</style>
+
 <body>
-    <h1>H1 Hola</h1>
-    <h2>H2 Hola</h2>
-    <h3>H3 Hola</h3>
-    <p>Que pasas <b>con los atascos</b> de la autovía de <strong>Málaga</strong></p>
-    <a href="https://www.malaga.eu/" target="blank">Mire a málaga</a>
+    <main style="padding: 50px;">
+        <h1>H1 Hola</h1>
+        <h2>H2 Hola</h2>
+        <h3>H3 Hola</h3>
+        <p>Que pasas <b>con los atascos</b> de la autovía de <strong>Málaga</strong></p>
+        <a href="https://www.malaga.eu/" target="blank">Mire a málaga</a>
+    </main>
+
+    <section style="padding: 50px; padding-top: 0px;">
+        <form action="" autocomplete="on">
+            <div style="display: flex; flex-direction: column; gap: 20px; padding-bottom: 20px;">
+                <div class="gridInputLabel">
+                    <label for="firstName">Nombre:</label>
+                    <input type="text" name="firstName" id="firstName" title='Introduce tu nombre' placeholder="Juan" required/>
+                </div>
+                <div class="gridInputLabel">
+                    <label for="lastName">Primer apellido:</label>
+                    <input type="text" name="lastName" id="lastName" title='Introduce tu primer apellido' placeholder="Fernandez" required/>
+                </div>
+                <div class="gridInputLabel">
+                    <label for="birthdate">Fecha de nacimiento:</label>
+                    <input type="date" name="birthdate" id="birthdate" title='Introduce tu fecha de nacimiento' value="1997-01-01" required/>
+                </div>
+                <div class="gridInputLabel">
+                    <label for="email">E-mail:</label>
+                    <input type="email" name="email" id="email" title='Introduce tu correo electrónico' placeholder="juan_fernandez@gmail.com" required/>
+                </div>
+                <div class="gridInputLabel">
+                    <label for="telefone">Telefono:</label>
+                    <input type="tel" name="telefone" id="telefone" title='Introduce tu número de teléfono' placeholder="666 777 888" required/>
+                </div>
+                <div class="gridInputLabel">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" name="password" id="password" title='Introduce tu contraseña' placeholder="S€cret0" required />
+                </div>
+                <div class="gridInputLabel">
+                    <label for="color">Color favorito:</label>
+                    <input type="color" name="color" id="color" title='Introduce tu color favorito' value="#0033FF" equired/>
+                </div>
+            </div>
+            <input type="submit" value="Submit" />
+        </form>
+
+    </section>
+
 </body>
 
 </html>
