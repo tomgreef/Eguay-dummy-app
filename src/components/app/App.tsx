@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from '../../logo.svg';
-import './App.css';
+import { Box, Link, Typography } from '@mui/material';
 
-function App() {
+export default function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      minHeight="100vh"
+    >
+      <Typography sx={{
+        width: 300,
+        color: 'primary.main',
+      }}>This is a test</Typography>
+      <Typography sx={{
+        width: 300,
+        color: 'primary.secondary',
+      }}>More info: </Typography>
+      <Link href="https://mui.com/material-ui/react-grid/" rel="noopener">https://mui.com/material-ui/react-grid/</Link>
+    </Box>
   );
 }
-
-export default App;
