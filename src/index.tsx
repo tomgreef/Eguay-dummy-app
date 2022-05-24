@@ -6,6 +6,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import NavBar from './components/navBar/NavBar';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Login from './components/login/Login';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -36,7 +37,8 @@ root.render(
       <NavBar />
       <Router>
         <Routes>
-          <Route path="/" element={<App />} />
+          <Route path="/" element={<Login />} />
+
         </Routes>
       </Router>
     </ThemeProvider>
