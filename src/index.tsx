@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import NavBar from './components/navBar/NavBar';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Login from './components/login/Login';
+import Register from './components/register/Register'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -37,7 +38,7 @@ root.render(
       <NavBar />
       <Router>
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<Register />} />
 
         </Routes>
       </Router>

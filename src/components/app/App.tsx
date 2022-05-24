@@ -1,6 +1,7 @@
 import { Box, Link, Typography } from '@mui/material';
 import  Login from '../login/Login'
 
+
 export default function App() {
 
   return (
@@ -14,7 +15,7 @@ export default function App() {
         width: 300,
         color: 'primary.main',
       }}>This is a test</Typography>
-      <Login></Login>
+
       <Typography sx={{
         width: 300,
         color: 'primary.secondary',
