@@ -10,7 +10,7 @@ body {
 .box-form {
   margin: 0 auto;
   width: 60%;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 10px;
   overflow: hidden;
   display: flex;
@@ -31,7 +31,7 @@ body {
   height: auto;
 }
 .box-form .left {
-  color: #FFFFFF;
+  color: #ffffff;
   background-size: cover;
   background-repeat: no-repeat;
   background-image: url("https://images.pexels.com/photos/3530113/pexels-photo-3530113.jpeg?cs=srgb&dl=pexels-dids-3530113.jpg&fm=jpg");
@@ -58,7 +58,7 @@ body {
 }
 .box-form .left .overlay span a {
   background: #3b5998;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-top: 10px;
   padding: 14px 50px;
   border-radius: 100px;
@@ -82,7 +82,7 @@ body {
   font-size: 3vmax;
   line-height: 0;
   word-break: keep-all;
-  color: #880E0D;
+  color: #880e0d;
 }
 .box-form .right p {
   font-size: 14px;
@@ -101,7 +101,7 @@ body {
   border-bottom: 2px solid #413f3f;
 }
 .box-form .right a {
-  color : rgb(114, 111, 111);
+  color: rgb(114, 111, 111);
 }
 .box-form .right .remember-me--forget-password {
   display: flex;
@@ -115,14 +115,14 @@ body {
 }
 .box-form .right button {
   float: right;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 16px;
   padding: 12px 35px;
   border-radius: 50px;
   display: inline-block;
   border: 0;
   outline: 0;
-  background: #880E0D;
+  background: #880e0d;
 }
 
 label {
@@ -132,11 +132,11 @@ label {
 }
 
 label::before {
-  content: ' \f00c';
+  content: " \f00c";
   position: absolute;
   font-family: FontAwesome;
   background: transparent;
-  border: 3px solid #880E0D;
+  border: 3px solid #880e0d;
   border-radius: 4px;
   color: transparent;
   left: -30px;
@@ -145,14 +145,14 @@ label::before {
 
 label:hover::before {
   font-family: FontAwesome;
-  content: ' \f00c';
+  content: " \f00c";
   color: #fff;
   cursor: pointer;
   background: #726f6f;
 }
 
 label:hover::before .text-checkbox {
-  background: #70F570;
+  background: #70f570;
 }
 
 label span.text-checkbox {

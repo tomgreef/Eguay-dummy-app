@@ -1,62 +1,52 @@
-import './Login.css'
-import { Box, Link, Typography } from '@mui/material';
+import { FC } from 'react'
+import { Box, TextField, Card, Button, FormControl, Grid, Typography, Checkbox, FormControlLabel, FormGroup } from '@mui/material'
+import { Link } from 'react-router-dom'
 
-export default function Login() {
-    return(
+const Login: FC = () => {
 
-        <>
-            <head>
-                <meta charSet="UTF-8"/>
-                <title>Login Page in HTML with CSS Code Example</title>
-                <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
-                <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-                      rel="stylesheet"
-                      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-                      crossOrigin="anonymous"/>
-                    <link rel="stylesheet" href="./style.css"/>
+    return (
+        <Box sx={{
+            display: "flex", justifyContent: "center",
+            alignItems: "center", minHeight: "100vh"
+        }}>
+            <Card sx={{
+                width: "68%",
+                maxHeight: "60vh"
+            }}>
+                <Grid container direction="row"
+                    justifyContent="space-between"
+                >
+                    <Grid item sx={{ width: "50%", maxHeight: "60vh" }}>
+                        <img src="https://images.pexels.com/photos/3530113/pexels-photo-3530113.jpeg?cs=srgb&dl=pexels-dids-3530113.jpg&fm=jpg" alt="Background image" width="100%" height="100%" />
+                    </Grid>
+                    <Grid container direction="column"
+                        justifyContent="space-around" alignItems="center" sx={{ width: "50%", minHeight: "100%", padding: 4 }}
+                    >
+                        <Grid item >
+                            <Typography sx={{ color: "primary.main", fontSize: 44 }}>Iniciar Sesión</Typography>
+                        </Grid>
+                        <Grid item container direction="column"
+                            justifyContent="space-between" alignItems="center">
+                            <Typography sx={{ paddingBottom: 4 }}>¿Aún no tienes cuenta? <Link to={"/registrar"}>Crear tu cuenta</Link> tardará menos de un minuto</Typography>
+                            <FormControl fullWidth sx={{ gap: 2 }}>
+                                <TextField id="outlined-basic" label="Username" variant="standard" required />
+                                <TextField id="standard-password-input"
+                                    label="Password"
+                                    type="password"
+                                    autoComplete="current-password"
+                                    variant="standard" required />
+                                <Grid item container direction="row"
+                                    alignSelf="end" sx={{ width: "100%" }}>
+                                    <Button variant="contained" sx={{ width: "40%", marginTop: 2, alignContent: "center" }} onSubmit={() => null}>Iniciar Sesión</Button>
+                                </Grid>
+                            </FormControl>
+                        </Grid>
+                    </Grid>
+                </Grid>
 
-            </head>
-            <body>
-            <div className="box-form">
-                <div className="left">
-                    <div className="overlay">
-                        <h1>EGUAY</h1>
-                        <br/>
-
-                        <span>
-			<p>Bienvenido al mercado EGUAY donde comprar ha sido
-                            Mucho mas facil y mas divertido !!!</p>
-			<a href="#"><i className="fa fa-facebook" aria-hidden="true"></i></a>
-			<a href="#"><i className="fa fa-twitter" aria-hidden="true"></i> Login with Twitter</a>
-		</span>
-                    </div>
-                </div>
-                <div className="right">
-                    <h5>Iniciar Session</h5>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-
-                    <p>Aún no tienes cuenta? <a href="#">Crea tu cuenta aquí</a> tardará menos de un minuto</p>
-                        <div className="inputs">
-                            <input type="text" placeholder="Usuario"/>
-                                <br/>
-                            <input type="password" placeholder="Contraseña"/>
-                        </div>
-                    <br/>
-                    <br/>
-                    <label>
-                        <input type="checkbox" name="item" checked/>
-                        <span className="text-checkbox">Remember me</span>
-                    </label>
-                    <br/>
-                        <button>Login</button>
-                </div>
-            </div>
-
-            </body>
-        </>
+            </Card >
+        </Box >
     )
 }
+
+export default Login

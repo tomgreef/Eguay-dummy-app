@@ -1,18 +1,19 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './components/app/App';
+import Index from './components/app/Index';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import NavBar from './components/navBar/NavBar';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Login from './components/login/Login';
 import Register from './components/register/Register'
+import CrearSubasta from './components/crearSubasta/CrearSubasta';
+import Login from './components/login/Login';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
+// Incrementales de 4
 const theme = createTheme({
   palette: {
     primary: {
@@ -32,14 +33,16 @@ const theme = createTheme({
   }
 });
 
+
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme} >
-      <NavBar />
       <Router>
         <Routes>
-          <Route path="/" element={<Register />} />
-
+          <Route path="/" element={<Index />} />
+          <Route path="/iniciarSesion" element={<Login />} />
+          <Route path="/registrar" element={<Register />} />
+          <Route path="/crearSubasta" element={<CrearSubasta />} />
         </Routes>
       </Router>
     </ThemeProvider>
