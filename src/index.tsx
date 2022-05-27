@@ -8,6 +8,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Register from './components/register/Register'
 import CrearSubasta from './components/crearSubasta/CrearSubasta';
 import Login from './components/login/Login';
+import { CssBaseline } from '@mui/material';
+import { FormatPaintRounded } from '@mui/icons-material';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -28,7 +30,36 @@ const theme = createTheme({
   },
   typography: {
     allVariants: {
-      color: "black"
+      color: "black",
+      letterSpacing: 1
+    },
+    fontFamily: [
+      'Roboto'
+    ].join(','),
+    h1: {
+      fontWeight: "bold",
+      fontSize: 36,
+    },
+    h2: {
+      fontWeight: "bold",
+      fontSize: 28,
+    },
+    h3: {
+      fontWeight: "bold",
+      fontSize: 20,
+    },
+    body1: {
+      fontSize: 16
+    },
+    body2: { // LINKS
+      fontSize: 12,
+      fontStyle: "italic",
+      textDecoration: "none"
+    },
+    button: {
+      fontWeight: "bold",
+      fontSize: 20,
+      textTransform: "none"
     }
   }
 });
@@ -37,6 +68,7 @@ const theme = createTheme({
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme} >
+      <CssBaseline />
       <Router>
         <Routes>
           <Route path="/" element={<Index />} />
