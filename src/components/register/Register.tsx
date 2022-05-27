@@ -1,9 +1,40 @@
-import { FC } from 'react'
-import { Box, TextField, Card, Button, FormControl, Grid, Typography, Checkbox, FormControlLabel, FormGroup } from '@mui/material'
-import { Link } from 'react-router-dom'
-import NavBar from '../navBar/NavBar'
+import { FC, useState } from 'react'
+import { Box, TextField, Card, Button, FormControl, Grid, Typography } from '@mui/material'
+import { Link, useNavigate } from 'react-router-dom'
+import NavBar from '../app/NavBar'
 
 const Register: FC = () => {
+    const navigate = useNavigate()
+    const [username, setUsername] = useState<string>();
+    const [password, setPassword] = useState<string>();
+    const [confirmPassword, setConfirmPassword] = useState<string>();
+
+    const [usernameError, setUsernameError] = useState<string>();
+    const [passwordError, setPasswordError] = useState<string>();
+
+    const register = () => {
+
+        if (!!!username) {
+            setUsernameError("Username is empty")
+            return
+        } else
+            setUsernameError("")
+        if (!!!password) {
+            setPasswordError("Password is empty")
+            return
+        } else
+            setPasswordError("")
+
+        if (password !== confirmPassword) {
+            setPasswordError("Passwords do not match")
+            return
+        }
+
+        localStorage.setItem('user', username);
+        localStorage.setItem('password', password);
+        localStorage.setItem('activeUser', username);
+        navigate("/")
+    }
 
     return (
         <>
@@ -30,18 +61,18 @@ const Register: FC = () => {
                             </Grid>
                             <Grid item>
                                 <FormControl fullWidth sx={{ gap: 4 }}>
-                                    <TextField id="outlined-basic" label="Usuario" variant="filled" required />
-                                    <TextField id="standard-password-input"
+                                    <TextField id="outlined-basic" label="Usuario" variant="filled" required onChange={(e) => setUsername(e.target.value.toLowerCase())} error={!!usernameError} helperText={usernameError} />
+                                    <TextField id="password"
                                         label="Contraseña"
                                         type="password"
                                         autoComplete="current-password"
-                                        variant="filled" required />
-                                    <TextField id="standard-password-input"
+                                        variant="filled" required onChange={(e) => setPassword(e.target.value)} error={!!passwordError} helperText={passwordError} />
+                                    <TextField id="confirmPassword"
                                         label="Repetir Contraseña"
                                         type="password"
                                         autoComplete="current-password"
-                                        variant="filled" required />
-                                    <Button variant="contained" sx={{ alignContent: "center" }} onSubmit={() => null}>Registrarse</Button>
+                                        variant="filled" required onChange={(e) => setConfirmPassword(e.target.value)} />
+                                    <Button variant="contained" sx={{ alignContent: "center" }} onClick={() => register()}>Registrarse</Button>
                                 </FormControl>
                             </Grid>
                             <Grid container direction="row" justifyContent="space-between" alignItems="center">

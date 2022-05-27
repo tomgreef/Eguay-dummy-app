@@ -1,9 +1,47 @@
-import { FC } from 'react'
-import { Box, TextField, Card, Button, FormControl, Grid, Typography, Checkbox, FormControlLabel, FormGroup } from '@mui/material'
-import { Link } from 'react-router-dom'
-import NavBar from '../navBar/NavBar'
+import { FC, useState } from 'react'
+import { Box, TextField, Card, Button, FormControl, Grid, Typography, Checkbox, FormControlLabel } from '@mui/material'
+import { Link, useNavigate } from 'react-router-dom'
+import NavBar from '../app/NavBar'
 
 const Login: FC = () => {
+    const navigate = useNavigate()
+    const [username, setUsername] = useState<string>();
+    const [password, setPassword] = useState<string>();
+
+    const [usernameError, setUsernameError] = useState<string>();
+    const [passwordError, setPasswordError] = useState<string>();
+
+    const signIn = () => {
+        if (!!!username) {
+            setUsernameError("Username is empty")
+            return
+        } else
+            setUsernameError("")
+
+        if (!!!password) {
+            setPasswordError("Password is empty")
+            return
+        } else
+            setPasswordError("")
+
+        const localUsername = localStorage.getItem('user');
+        if (localUsername === null || localUsername !== username.toLowerCase()) {
+            setUsernameError("Username does not exist")
+            return
+        } else
+            setUsernameError("")
+
+        const localPassword = localStorage.getItem("password");
+        if (localPassword !== password) {
+            setPasswordError("Wrong password")
+            return
+        }
+
+        localStorage.setItem('user', username);
+        localStorage.setItem('password', password);
+        localStorage.setItem('activeUser', username);
+        navigate("/")
+    }
 
     return (
         <>
@@ -30,13 +68,14 @@ const Login: FC = () => {
                             </Grid>
                             <Grid item>
                                 <FormControl fullWidth sx={{ gap: 4 }}>
-                                    <TextField id="outlined-basic" label="Usuario" variant="filled" required />
+                                    <TextField id="outlined-basic" label="Usuario" variant="filled" required error={!!usernameError} helperText={usernameError}
+                                        onChange={(e) => setUsername(e.target.value.toLowerCase())} />
                                     <TextField id="standard-password-input"
                                         label="Contraseña"
                                         type="password"
                                         autoComplete="current-password"
-                                        variant="filled" required />
-                                    <Button variant="contained" sx={{ alignContent: "center" }} onSubmit={() => null}>Iniciar Sesión</Button>
+                                        variant="filled" required error={!!passwordError} helperText={passwordError} onChange={(e) => setPassword(e.target.value)} />
+                                    <Button variant="contained" sx={{ alignContent: "center" }} onClick={() => signIn()}>Iniciar Sesión</Button>
                                 </FormControl>
                             </Grid>
                             <Grid container direction="row" justifyContent="space-between" alignItems="center">

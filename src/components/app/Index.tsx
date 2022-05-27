@@ -1,5 +1,5 @@
-import { Box, Link, Typography } from '@mui/material';
-import NavBar from '../navBar/NavBar';
+import Footer from './Footer';
+import NavBar from './NavBar';
 
 
 export default function Index() {
@@ -7,6 +7,7 @@ export default function Index() {
   return (
     <>
       <NavBar />
+      <Footer />
     </>
   );
 }
