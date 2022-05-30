@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1bcbbb1d-c6ca-45ec-b430-a547b0fe8f26" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/register/Register.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/register/Register.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/app/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login/Login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/Login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/addProduct/addProduct.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +21,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Index" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -48,7 +51,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/register" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2021.3.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2021.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -71,6 +74,8 @@
       <workItem from="1652864391239" duration="672000" />
       <workItem from="1652865222577" duration="641000" />
       <workItem from="1653382810613" duration="10038000" />
+      <workItem from="1653843008695" duration="10353000" />
+      <workItem from="1653897370624" duration="1352000" />
     </task>
     <servers />
   </component>

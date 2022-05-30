@@ -2,12 +2,13 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Index from './components/app/Index';
-import './index.css';
+// import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Register from './components/register/Register'
 import CrearSubasta from './components/crearSubasta/CrearSubasta';
 import Login from './components/login/Login';
+import AddProduct from './components/addProduct/addProduct';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -43,6 +44,7 @@ root.render(
           <Route path="/iniciarSesion" element={<Login />} />
           <Route path="/registrar" element={<Register />} />
           <Route path="/crearSubasta" element={<CrearSubasta />} />
+          <Route path="/addProduct" element={<AddProduct />} />
         </Routes>
       </Router>
     </ThemeProvider>
