@@ -7,6 +7,9 @@ import Checkbox from '@mui/material/Checkbox';
 import {Container, Paper , Divider, Box, FormControl, InputLabel, Input, InputAdornment, Stack } from '@mui/material';
 import { AccountCircle } from '@mui/icons-material';
 import EuroIcon from '@mui/icons-material/Euro';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 const currencies = [
     {
         value: 'Jugeutes Adultos',
@@ -33,6 +36,8 @@ export default function AddressForm() {
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setCurrency(event.target.value);
     };
+    const [value, setValue] = React.useState<Date | null>(new Date());
+
     return (
         <Container component="main"  sx={{mb: 4}}>
             <Paper variant="outlined" sx={{my: {xs: 3, md: 6}, p: {xs: 2, md: 3}}}>
@@ -164,19 +169,8 @@ export default function AddressForm() {
                             label="La puja se la lleva el mejor postor el "
 
                         />
-                        <TextField
-                            id="input-with-icon-textfield"
-                            label="Precio inicial"
+                        
 
-                            InputProps={{
-                                startAdornment: (
-                                    <InputAdornment position="start">
-                                        <EuroIcon />
-                                    </InputAdornment>
-                                ),
-                            }}
-                            variant="standard"
-                        />
 
                     </Grid>
                     </Stack>
