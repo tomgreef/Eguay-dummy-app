@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import {Container, Paper , Divider, Box, FormControl, InputLabel, Input, InputAdornment, Stack } from '@mui/material';
+import {Container, Paper , Divider, Box, FormControl, InputLabel, Input, InputAdornment, Stack, Button } from '@mui/material';
 import { AccountCircle } from '@mui/icons-material';
 import EuroIcon from '@mui/icons-material/Euro';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
@@ -40,7 +40,7 @@ export default function AddressForm() {
 
     return (
         <Container component="main"  sx={{mb: 4}}>
-            <Paper variant="outlined" sx={{my: {xs: 3, md: 6}, p: {xs: 2, md: 3}}}>
+            <Paper variant="outlined" sx={{my: {xs: 3, md: 6},border: 1,borderColor: 'primary.main' ,p: {xs: 2, md: 3}}}>
 
 
                 <Typography variant="h6" gutterBottom>
@@ -58,7 +58,7 @@ export default function AddressForm() {
                         variant="filled"/>
 
                 </Grid>
-                <Grid item xs={12} sx={{ ma : 4 }}>
+                <Grid item xs={12}  sx={{ ma : 4 }} >
                     <TextField
                         required
                         id="URL"
@@ -124,8 +124,8 @@ export default function AddressForm() {
 
                     </Box>
                 </Grid>
-                <Grid item xs={12} margin="normal"  >
-                    <Stack spacing={3}>
+                <Grid item xs={12}   >
+                    <Stack spacing={5}>
                     <Grid container
                           direction="row"
                           justifyContent="flex-start"
@@ -134,13 +134,13 @@ export default function AddressForm() {
                     >
                     <FormControlLabel
                         sx={{ m: -1  }}
-                        control={<Checkbox color="secondary" name="PrecioDeCompra" value="yes"/>}
+                        control={<Checkbox color="primary" name="PrecioDeCompra" value="yes"/>}
                         label="Precio de compra directa"
 
                     />
                         <TextField
+                            sx={{ m: 1  }}
                             id="input-with-icon-textfield"
-                            label="Precio inicial"
 
                             InputProps={{
                                 startAdornment: (
@@ -165,18 +165,32 @@ export default function AddressForm() {
                     >
                         <FormControlLabel
                             sx={{ m: -1  }}
-                            control={<Checkbox color="secondary" name="PrecioDeCompra" value="yes"/>}
+                            control={<Checkbox color="primary" name="PrecioDeCompra" value="yes"/>}
                             label="La puja se la lleva el mejor postor el "
 
                         />
-                        
+                        <LocalizationProvider dateAdapter={AdapterDateFns}>
+                            <DateTimePicker
+                                renderInput={(props) => <TextField {...props} />}
+
+                                value={value}
+                                onChange={(newValue) => {
+                                    setValue(newValue);
+                                }}
+                                
+                            />
+                        </LocalizationProvider>
 
 
                     </Grid>
+                        <Grid >
+                        <Button variant="contained">Contained</Button>
+                        </Grid>
                     </Stack>
                     </Grid>
 
             </Grid>
+
 
             </Paper>
         </Container>
