@@ -9,7 +9,6 @@ import Register from './components/register/Register'
 import CrearSubasta from './components/crearSubasta/CrearSubasta';
 import Login from './components/login/Login';
 import { CssBaseline } from '@mui/material';
-import { FormatPaintRounded } from '@mui/icons-material';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -63,7 +62,6 @@ const theme = createTheme({
     }
   }
 });
-
 
 root.render(
   <React.StrictMode>
