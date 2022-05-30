@@ -9,6 +9,7 @@ import Register from './components/register/Register'
 import CrearSubasta from './components/crearSubasta/CrearSubasta';
 import Login from './components/login/Login';
 import AddProduct from './components/addProduct/addProduct';
+import Product from './components/product/product';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -45,6 +46,7 @@ root.render(
           <Route path="/registrar" element={<Register />} />
           <Route path="/crearSubasta" element={<CrearSubasta />} />
           <Route path="/addProduct" element={<AddProduct />} />
+          <Route path="/product" element={<Product />} />
         </Routes>
       </Router>
     </ThemeProvider>

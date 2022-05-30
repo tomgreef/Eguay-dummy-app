@@ -15,23 +15,31 @@ import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 
 const currencies = [
     {
-        value: 'Jugeutes Adultos',
-        label: 'Jugeutes Adultos',
+        value: ' Jugeutes Adultos',
+        label: ' Jugeutes Adultos',
+        
     },
     {
-        value: 'Weed',
-        label: '*',
+        value: ' Viajes',
+        label: ' Viajes',
     },
     {
-        value: 'BTC',
-        label: '฿',
+        value: ' Mobiliario',
+        label: ' Mobiliario',
     },
     {
-        value: 'JPY',
-        label: '¥',
+        value: ' Tech',
+        label: 'Tech',
     },
 ];
 
+const mystyle = {
+    top: "5px",
+  width: "25px",
+  height: "20px",
+  border: "solid white",
+  margin:"1px"
+  };
 
 export default function AddressForm() {
     const [currency, setCurrency] = React.useState('EUR');
@@ -83,9 +91,11 @@ export default function AddressForm() {
                         margin="normal"
                         SelectProps={{
                             native: true,
+                           
                         }}
                         helperText="Selecciona la categoria deseada"
                         variant="filled"
+                       
                     >
                         {currencies.map((option) => (
                             <option key={option.value} value={option.value}>
@@ -135,12 +145,11 @@ export default function AddressForm() {
                           alignItems="flex-end"
                           gap ={4}
                     >
-                    <FormControlLabel
-                        sx={{ m: -1  }}
-                        control={<Checkbox color="primary" name="PrecioDeCompra" value="yes"/>}
-                        label="Precio de compra directa"
-
-                    />
+                    <Stack sx={{ m: 1  }} direction="row" gap ={1} >
+                     <input type="checkbox" style={mystyle} /> 
+                     Precio de compra directa
+                     </Stack>
+                    
                         <TextField
                             sx={{ m: 1  }}
                             id="input-with-icon-textfield"
@@ -166,12 +175,16 @@ export default function AddressForm() {
                           gap ={4}
                           sx={{ m: 0  }}
                     >
-                        <FormControlLabel
+                        {/* <FormControlLabel
                             sx={{ m: -1  }}
                             control={<Checkbox color="primary" name="PrecioDeCompra" value="yes"/>}
                             label="La puja se la lleva el mejor postor el "
 
-                        />
+                        /> */}
+                    <Stack sx={{ m: 1  }} direction="row" gap ={1} >
+                     <input type="checkbox" style={mystyle} /> 
+                     La puja se la lleva el mejor postor el
+                     </Stack>
                         <LocalizationProvider dateAdapter={AdapterDateFns}>
                             <DateTimePicker
                                 renderInput={(props) => <TextField {...props} />}
@@ -187,7 +200,7 @@ export default function AddressForm() {
 
                     </Grid>
                         <Grid >
-                        <Button variant="contained">Contained</Button>
+                        <Button variant="contained">Añadir</Button>
                         </Grid>
                     </Stack>
                     </Grid>
