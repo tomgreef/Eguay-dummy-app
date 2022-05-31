@@ -37,11 +37,11 @@ const theme = createTheme({
     ].join(','),
     h1: {
       fontWeight: "bold",
-      fontSize: 36,
+      fontSize: 32,
     },
     h2: {
       fontWeight: "bold",
-      fontSize: 28,
+      fontSize: 24,
     },
     h3: {
       fontWeight: "bold",
