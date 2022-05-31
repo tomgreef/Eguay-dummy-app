@@ -1,51 +1,99 @@
-import { FC } from 'react'
-import { Box, TextField, Card, Button, FormControl, Grid, Typography, Checkbox, FormControlLabel, FormGroup } from '@mui/material'
-import { Link } from 'react-router-dom'
+import { FC, useState } from 'react'
+import { Box, TextField, Card, Button, FormControl, Grid, Typography, Checkbox, FormControlLabel } from '@mui/material'
+import { Link, useNavigate } from 'react-router-dom'
+import NavBar from '../app/NavBar'
 
 const Login: FC = () => {
+    const navigate = useNavigate()
+    const [username, setUsername] = useState<string>();
+    const [password, setPassword] = useState<string>();
+
+    const [usernameError, setUsernameError] = useState<string>();
+    const [passwordError, setPasswordError] = useState<string>();
+
+    const signIn = () => {
+        if (!!!username) {
+            setUsernameError("Username is empty")
+            return
+        } else
+            setUsernameError("")
+
+        if (!!!password) {
+            setPasswordError("Password is empty")
+            return
+        } else
+            setPasswordError("")
+
+        const localUsername = localStorage.getItem('user');
+        if (localUsername === null || localUsername !== username.toLowerCase()) {
+            setUsernameError("Username does not exist")
+            return
+        } else
+            setUsernameError("")
+
+        const localPassword = localStorage.getItem("password");
+        if (localPassword !== password) {
+            setPasswordError("Wrong password")
+            return
+        }
+
+        localStorage.setItem('user', username);
+        localStorage.setItem('password', password);
+        localStorage.setItem('activeUser', username);
+        navigate("/")
+    }
 
     return (
-        <Box sx={{
-            display: "flex", justifyContent: "center",
-            alignItems: "center", minHeight: "100vh"
-        }}>
-            <Card sx={{
-                width: "68%",
-                maxHeight: "60vh"
+        <>
+            <NavBar hideLinks={true} />
+            <Box sx={{
+                display: "flex", justifyContent: "center",
+                alignItems: "center", height: "84vh"
             }}>
-                <Grid container direction="row"
-                    justifyContent="space-between"
-                >
-                    <Grid item sx={{ width: "50%", maxHeight: "60vh" }}>
-                        <img src="https://images.pexels.com/photos/3530113/pexels-photo-3530113.jpeg?cs=srgb&dl=pexels-dids-3530113.jpg&fm=jpg" alt="Background image" width="100%" height="100%" />
-                    </Grid>
-                    <Grid container direction="column"
-                        justifyContent="space-around" alignItems="center" sx={{ width: "50%", minHeight: "100%", padding: 4 }}
+                <Card sx={{
+                    width: "68%",
+                    maxHeight: "60vh"
+                }}>
+                    <Grid container direction="row"
+                        justifyContent="space-between"
                     >
-                        <Grid item >
-                            <Typography sx={{ color: "primary.main", fontSize: 44 }}>Iniciar Sesión</Typography>
+                        <Grid item sx={{ width: "50%", maxHeight: "60vh" }}>
+                            <img src="https://images.pexels.com/photos/3530113/pexels-photo-3530113.jpeg?cs=srgb&dl=pexels-dids-3530113.jpg&fm=jpg" alt="Background image" width="100%" height="100%" />
                         </Grid>
-                        <Grid item container direction="column"
-                            justifyContent="space-between" alignItems="center">
-                            <Typography sx={{ paddingBottom: 4 }}>¿Aún no tienes cuenta? <Link to={"/registrar"}>Crear tu cuenta</Link> tardará menos de un minuto</Typography>
-                            <FormControl fullWidth sx={{ gap: 2 }}>
-                                <TextField id="outlined-basic" label="Username" variant="standard" required />
-                                <TextField id="standard-password-input"
-                                    label="Password"
-                                    type="password"
-                                    autoComplete="current-password"
-                                    variant="standard" required />
-                                <Grid item container direction="row"
-                                    alignSelf="end" sx={{ width: "100%" }}>
-                                    <Button variant="contained" sx={{ width: "40%", marginTop: 2, alignContent: "center" }} onSubmit={() => null}>Iniciar Sesión</Button>
+                        <Grid container direction="column"
+                            justifyContent="center" sx={{ width: "50%", minHeight: "100%", padding: 4 }} gap={4}
+                        >
+                            <Grid item >
+                                <Typography variant="h1">Iniciar Sesión</Typography>
+                            </Grid>
+                            <Grid item>
+                                <FormControl fullWidth sx={{ gap: 4 }}>
+                                    <TextField id="outlined-basic" label="Usuario" variant="filled" required error={!!usernameError} helperText={usernameError}
+                                        onChange={(e) => setUsername(e.target.value.toLowerCase())} />
+                                    <TextField id="standard-password-input"
+                                        label="Contraseña"
+                                        type="password"
+                                        autoComplete="current-password"
+                                        variant="filled" required error={!!passwordError} helperText={passwordError} onChange={(e) => setPassword(e.target.value)} />
+                                    <Button variant="contained" sx={{ alignContent: "center" }} onClick={() => signIn()}>Iniciar Sesión</Button>
+                                </FormControl>
+                            </Grid>
+                            <Grid container direction="row" justifyContent="space-between" alignItems="center">
+                                <Grid item>
+                                    <FormControlLabel control={<Checkbox defaultChecked />} label="Recuérdame" />
                                 </Grid>
-                            </FormControl>
+                                <Grid item>
+                                    <Link to={"/"} style={{ textDecoration: 'none' }}><Typography variant="body2">Volver al inicio</Typography></Link>
+                                </Grid>
+                                <Grid item>
+                                    <Link to={"/registrar"} style={{ textDecoration: 'none' }}><Typography variant="body2" sx={{ color: "primary.main" }}>Registrarse</Typography></Link>
+                                </Grid>
+                            </Grid>
                         </Grid>
                     </Grid>
-                </Grid>
-
-            </Card >
-        </Box >
+                </Card >
+            </Box >
+        </>
     )
 }
 

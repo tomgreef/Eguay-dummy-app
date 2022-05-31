@@ -1,60 +1,94 @@
-import './Register.css'
-import { Box, Link, Typography } from '@mui/material';
+import { FC, useState } from 'react'
+import { Box, TextField, Card, Button, FormControl, Grid, Typography } from '@mui/material'
+import { Link, useNavigate } from 'react-router-dom'
+import NavBar from '../app/NavBar'
 
-export default function Register() {
-    return(
+const Register: FC = () => {
+    const navigate = useNavigate()
+    const [username, setUsername] = useState<string>();
+    const [password, setPassword] = useState<string>();
+    const [confirmPassword, setConfirmPassword] = useState<string>();
 
+    const [usernameError, setUsernameError] = useState<string>();
+    const [passwordError, setPasswordError] = useState<string>();
+
+    const register = () => {
+
+        if (!!!username) {
+            setUsernameError("Username is empty")
+            return
+        } else
+            setUsernameError("")
+        if (!!!password) {
+            setPasswordError("Password is empty")
+            return
+        } else
+            setPasswordError("")
+
+        if (password !== confirmPassword) {
+            setPasswordError("Passwords do not match")
+            return
+        }
+
+        localStorage.setItem('user', username);
+        localStorage.setItem('password', password);
+        localStorage.setItem('activeUser', username);
+        navigate("/")
+    }
+
+    return (
         <>
-            <head>
-                <meta charSet="UTF-8"/>
-                <title>Sign out</title>
-                <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
-                <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-                      rel="stylesheet"
-                      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-                      crossOrigin="anonymous"/>
-                <link rel="stylesheet" href="./style.css"/>
-
-            </head>
-            <body>
-            <div className="box-form">
-                <div className="left">
-                    <div className="overlay">
-                        <h1>EGUAY</h1>
-                        <br/>
-
-                        <span>
-			<p>Bienvenido al mercado EGUAY donde comprar ha sido
-                            Mucho mas facil y mas divertido !!!</p>
-			<a href="#"><i className="fa fa-facebook" aria-hidden="true"></i></a>
-			<a href="#"><i className="fa fa-twitter" aria-hidden="true"></i> Login with Twitter</a>
-		</span>
-                    </div>
-                </div>
-                <div className="right">
-                    <h5>Crear cuenta</h5>
-                    <br/>
-                    <p>Ya tienes una cuenta? <a href="#">Inicia sesion Aquí</a>  y disfruta de nuestros servicios</p>
-                    <div className="inputs">
-                        <input type="text" placeholder="Usuario"/>
-                        <br/>
-                        <input type="password" placeholder="Contraseña"/>
-                        <br/>
-                        <input type="password" placeholder="Repetir Contraseña"/>
-                    </div>
-                    <br/>
-                    <br/>
-                    <label>
-                        <input type="checkbox" name="item" checked/>
-                        <span className="text-checkbox">Estoy de acuerdo de los terminos de servicio </span>
-                        <br/>
-                    </label>
-                    <br/>
-                    <button>Registrar</button>
-                </div>
-            </div>
-
-            </body>
+            <NavBar hideLinks={true} />
+            <Box sx={{
+                display: "flex", justifyContent: "center",
+                alignItems: "center", height: "84vh"
+            }}>
+                <Card sx={{
+                    width: "68%",
+                    maxHeight: "60vh"
+                }}>
+                    <Grid container direction="row"
+                        justifyContent="space-between"
+                    >
+                        <Grid item sx={{ width: "50%", maxHeight: "60vh" }}>
+                            <img src="https://images.pexels.com/photos/3530113/pexels-photo-3530113.jpeg?cs=srgb&dl=pexels-dids-3530113.jpg&fm=jpg" alt="Background image" width="100%" height="100%" />
+                        </Grid>
+                        <Grid container direction="column"
+                            justifyContent="center" sx={{ width: "50%", minHeight: "100%", padding: 4 }} gap={4}
+                        >
+                            <Grid item >
+                                <Typography variant="h1">Registrarse</Typography>
+                            </Grid>
+                            <Grid item>
+                                <FormControl fullWidth sx={{ gap: 4 }}>
+                                    <TextField id="outlined-basic" label="Usuario" variant="filled" required onChange={(e) => setUsername(e.target.value.toLowerCase())} error={!!usernameError} helperText={usernameError} />
+                                    <TextField id="password"
+                                        label="Contraseña"
+                                        type="password"
+                                        autoComplete="current-password"
+                                        variant="filled" required onChange={(e) => setPassword(e.target.value)} error={!!passwordError} helperText={passwordError} />
+                                    <TextField id="confirmPassword"
+                                        label="Repetir Contraseña"
+                                        type="password"
+                                        autoComplete="current-password"
+                                        variant="filled" required onChange={(e) => setConfirmPassword(e.target.value)} />
+                                    <Button variant="contained" sx={{ alignContent: "center" }} onClick={() => register()}>Registrarse</Button>
+                                </FormControl>
+                            </Grid>
+                            <Grid container direction="row" justifyContent="space-between" alignItems="center">
+                                <Grid item>
+                                    <Link to={"/"} style={{ textDecoration: 'none' }}><Typography variant="body2">Volver al inicio</Typography></Link>
+                                </Grid>
+                                <Grid item>
+                                    <Link to={"/iniciarSesion"} style={{ textDecoration: 'none' }}><Typography variant="body2" sx={{ color: "primary.main" }}>Iniciar Sesión</Typography></Link>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Card >
+            </Box >
         </>
     )
 }
+
+export default Register
