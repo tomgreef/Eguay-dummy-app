@@ -8,6 +8,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Register from './components/register/Register'
 import CrearSubasta from './components/crearSubasta/CrearSubasta';
 import Login from './components/login/Login';
+import Product from './components/auction/Auction';
 import AddProduct from './components/addProduct/addProduct';
 import Product from './components/product/product';
 import { CssBaseline } from '@mui/material';
