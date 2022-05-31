@@ -1,8 +1,10 @@
-import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material';
+import { Button, Snackbar, Alert, Card, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import Footer from './Footer';
 import NavBar from './NavBar';
 import Productos from "../../context/productos.json"
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 export type Producto = {
   id: number,
@@ -18,8 +20,17 @@ export type Producto = {
   images: string[]
 }
 
-export default function Index() {
+const Index = () => {
+  const navigate = useNavigate()
   const productos: Producto[] = Productos.products;
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (searchParams.get("success") === "true")
+      setOpen(true)
+  }, [])
+
 
   function randomDate(start: Date, end: Date) {
     return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
@@ -44,22 +55,27 @@ export default function Index() {
     return `${days} días, ${hours} horas y ${minutes} minutos`
   }
 
-
   return (
     <>
+      <Snackbar
+        open={open}
+        autoHideDuration={6000}
+        onClose={() => setOpen(false)}
+        message="Puja guardado"
+      />
       <NavBar />
       <Box sx={{ padding: 4 }}>
         <Typography variant='h1' >Pujas recientes</Typography>
         <Grid container spacing={2} sx={{ marginTop: 2 }}>
           {productos.map((producto: Producto) => {
             return (
-              <Grid item key={producto.id} xs={6} sm={4} lg={3}>
-                <Card sx={{ minHeight: 600, maxHeight: 600 }}>
+              <Grid item key={producto.id} xs={12} sm={6} md={4} lg={3}>
+                <Card sx={{ minHeight: 600, maxHeight: 600 }} onClick={() => navigate("/producto?id=" + producto.id)}>
                   <CardMedia
                     component="img"
                     height="200"
                     image={producto.thumbnail}
-                    alt="green iguana"
+                    alt={producto.title}
                   />
                   <CardContent sx={{ height: 250, display: "flex", flexDirection: "column", justifyContent: "space-between", minHeigh: 250 }}>
                     <Typography gutterBottom variant="h3" component="div" sx={{ height: 50 }}>
@@ -95,3 +111,5 @@ export default function Index() {
     </>
   );
 }
+
+export default Index

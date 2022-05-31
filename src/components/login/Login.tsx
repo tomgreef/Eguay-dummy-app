@@ -69,13 +69,18 @@ const Login: FC = () => {
                             <Grid item>
                                 <FormControl fullWidth sx={{ gap: 4 }}>
                                     <TextField id="outlined-basic" label="Usuario" variant="filled" required error={!!usernameError} helperText={usernameError}
-                                        onChange={(e) => setUsername(e.target.value.toLowerCase())} />
+                                        onChange={(e) => setUsername(e.target.value.toLowerCase())} onKeyDown={(e) => (
+                                            e.code === 'Enter' ? signIn() : null
+                                        )} />
                                     <TextField id="standard-password-input"
                                         label="Contraseña"
                                         type="password"
                                         autoComplete="current-password"
-                                        variant="filled" required error={!!passwordError} helperText={passwordError} onChange={(e) => setPassword(e.target.value)} />
-                                    <Button variant="contained" sx={{ alignContent: "center" }} onClick={() => signIn()}>Iniciar Sesión</Button>
+                                        variant="filled" required error={!!passwordError} helperText={passwordError} onChange={(e) => setPassword(e.target.value)}
+                                        onKeyDown={(e) => (
+                                            e.code === 'Enter' ? signIn() : null
+                                        )} />
+                                    <Button variant="contained" sx={{ alignContent: "center" }} onClick={() => signIn()} type="submit">Iniciar Sesión</Button>
                                 </FormControl>
                             </Grid>
                             <Grid container direction="row" justifyContent="space-between" alignItems="center">

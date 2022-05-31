@@ -61,17 +61,38 @@ const Register: FC = () => {
                             </Grid>
                             <Grid item>
                                 <FormControl fullWidth sx={{ gap: 4 }}>
-                                    <TextField id="outlined-basic" label="Usuario" variant="filled" required onChange={(e) => setUsername(e.target.value.toLowerCase())} error={!!usernameError} helperText={usernameError} />
+                                    <TextField id="outlined-basic"
+                                        label="Usuario"
+                                        variant="filled"
+                                        required
+                                        onChange={(e) => setUsername(e.target.value.toLowerCase())}
+                                        error={!!usernameError}
+                                        helperText={usernameError}
+                                        onKeyDown={(e) => (
+                                            e.code === 'Enter' ? register() : null
+                                        )} />
                                     <TextField id="password"
                                         label="Contraseña"
                                         type="password"
                                         autoComplete="current-password"
-                                        variant="filled" required onChange={(e) => setPassword(e.target.value)} error={!!passwordError} helperText={passwordError} />
+                                        variant="filled"
+                                        required
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        error={!!passwordError}
+                                        helperText={passwordError}
+                                        onKeyDown={(e) => (
+                                            e.code === 'Enter' ? register() : null
+                                        )} />
                                     <TextField id="confirmPassword"
                                         label="Repetir Contraseña"
                                         type="password"
                                         autoComplete="current-password"
-                                        variant="filled" required onChange={(e) => setConfirmPassword(e.target.value)} />
+                                        variant="filled"
+                                        required
+                                        onChange={(e) => setConfirmPassword(e.target.value)}
+                                        onKeyDown={(e) => (
+                                            e.code === 'Enter' ? register() : null
+                                        )} />
                                     <Button variant="contained" sx={{ alignContent: "center" }} onClick={() => register()}>Registrarse</Button>
                                 </FormControl>
                             </Grid>
