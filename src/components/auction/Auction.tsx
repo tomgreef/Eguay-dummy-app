@@ -4,7 +4,7 @@ import NavBar from "../app/NavBar";
 import Item from "@mui/material";
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import GavelIcon from '@mui/icons-material/Gavel';
-
+import Footer from '../app/Footer';
 
 const Image = 'https://o.remove.bg/downloads/1d935199-d19d-4cbb-830e-a5e2e38bbdd5/4-removebg-preview.png';
 const HeaderStyle = {
@@ -69,7 +69,7 @@ const Auction = () => {
             <Box
                 sx={{
                     width: 800,
-                    height: 750,
+                    height: 840,
                     alignItems: 'center',
                     alignContent:'center',
                     margin : "normal",
@@ -89,11 +89,7 @@ const Auction = () => {
                     },
                 }}
         />
-            <Stack direction="row" spacing={2}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-                <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
-                <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
-            </Stack>
+            
             </Grid>
         </Grid>
         <Grid item xs={6}>
@@ -143,6 +139,7 @@ const Auction = () => {
                 </Box>
         </Grid>
       </Grid>
+      <Footer />
     </>
   );
 };
