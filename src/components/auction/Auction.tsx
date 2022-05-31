@@ -77,7 +77,7 @@ const Auction = () => {
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
                 m: 15,
-                mt:2,
+                mt:0,
                 backdropfilter: "blur(10px)", 
                 '&:hover': {
                 backgroundColor: '#929496',
@@ -91,7 +91,7 @@ const Auction = () => {
             <Box 
                 sx={{backgroundColor:"#FFFFFF"}}>
                 <Grid>
-                    <Box sx={{marginLeft:"57px" }}>
+                    <Box sx={{marginLeft:"57px" , paddingTop:1 }}>
                         <h1 style={HeaderStyle} >Titulo</h1>
                         <h1 style={HeaderStyle2}>Werimer - 40MM</h1>
                         <Box sx={{maxWidth:"500px"}}>
