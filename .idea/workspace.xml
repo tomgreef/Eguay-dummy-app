@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1bcbbb1d-c6ca-45ec-b430-a547b0fe8f26" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pago/pago.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pago/Pago.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pago/Pago.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pago/Pago.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +74,7 @@
       <workItem from="1653843008695" duration="10353000" />
       <workItem from="1653897370624" duration="1352000" />
       <workItem from="1654101066746" duration="97000" />
-      <workItem from="1654101297278" duration="9046000" />
+      <workItem from="1654101297278" duration="9671000" />
     </task>
     <servers />
   </component>
