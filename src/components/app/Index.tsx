@@ -24,11 +24,13 @@ const Index = () => {
   const navigate = useNavigate()
   const productos: Producto[] = Productos.products;
   const [searchParams, setSearchParams] = useSearchParams();
-  const [open, setOpen] = useState(false);
+  const [msg, setMsg] = useState<string>("");
 
   useEffect(() => {
-    if (searchParams.get("success") === "true")
-      setOpen(true)
+    const msg = searchParams.get("success");
+    if (msg !== null) {
+      setMsg(msg);
+    }
   }, [])
 
 
@@ -57,12 +59,11 @@ const Index = () => {
 
   return (
     <>
-      <Snackbar
-        open={open}
-        autoHideDuration={6000}
-        onClose={() => setOpen(false)}
-        message="Puja guardado"
-      />
+      <Snackbar open={msg !== ""} autoHideDuration={6000}  onClose={() => setMsg("")}>
+        <Alert severity="success" sx={{ width: '100%' }}>
+          {msg}
+        </Alert>
+      </Snackbar>
       <NavBar />
       <Box sx={{ padding: 4 }}>
         <Typography variant='h1' >Pujas recientes</Typography>

@@ -46,7 +46,7 @@ export default function AddressForm() {
     const [currency, setCurrency] = React.useState('EUR');
 
     const createProduct = () => {
-        navigate("/?success=true")
+        navigate("/?success=Puja+guardada")
     }
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
