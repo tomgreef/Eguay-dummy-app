@@ -10,6 +10,7 @@ import Login from './components/login/Login';
 import Product from './components/auction/Auction';
 import AddProduct from './components/addProduct/addProduct';
 import { CssBaseline } from '@mui/material';
+import Pago from "./components/pago/pago";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -75,6 +76,7 @@ root.render(
           <Route path="/registrar" element={<Register />} />
           <Route path="/crearProducto" element={<AddProduct />} />
           <Route path="/producto" element={<Product />} />
+          <Route path="/pago" element={<Pago />} />
         </Routes>
       </Router>
     </ThemeProvider>
