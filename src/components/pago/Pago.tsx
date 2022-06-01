@@ -19,10 +19,10 @@ const Pago: FC = () => {
         setValue(newValue);
     };
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const pagar = () => {
-        navigate("/")
+        navigate("/?success=Pago+realizado+correctamente");
     }
 
     return (
