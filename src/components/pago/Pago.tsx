@@ -36,7 +36,7 @@ const Pago: FC = () => {
                                   backgroundImage: "url('http://localhost:3000/img/pagoBackgrond.png')",
                                   backgroundSize: "cover"
                               }}>
-                            <Typography variant='h1' align="center" alignContent="center" color="white">¡Muchas gracias por su Compra!</Typography>
+                            <Typography variant='h1' align="center" alignContent="center" color="white" sx={{padding: 5}}>¡Muchas gracias por su Compra!</Typography>
                         </Grid>
                         <Grid container direction="column" justifyContent="center" alignItems="center" sx={{padding: 3}}>
                             <Stack spacing={5}>

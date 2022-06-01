@@ -7,7 +7,7 @@ import LocalMallIcon from '@mui/icons-material/LocalMall';
 import GavelIcon from '@mui/icons-material/Gavel';
 import Footer from '../app/Footer';
 import { Producto } from "../app/Index";
-import { useSearchParams } from "react-router-dom";
+import {useNavigate, useSearchParams} from "react-router-dom";
 
 
 const HeaderStyle = {
@@ -68,6 +68,12 @@ const Auction = () => {
     const producto: Producto | undefined = productos.find((producto: Producto) => producto.id.toString() === searchParams.get("id"))
 
     const Image = producto?.thumbnail
+
+    const navigate = useNavigate()
+
+    const pagar = () => {
+        navigate("/pago")
+    }
 
     return (
         <>
@@ -135,8 +141,8 @@ const Auction = () => {
                                         </Typography>
                                     </Stack>
                                     <Stack gap={3}>
-                                        <Button variant="contained" startIcon={<LocalMallIcon />} sx={{ width: "70%", height: "8vh", boxShadow: "7px 7px #888888" }} onClick={() => null}>Adquirir a precio de cierre</Button>
-                                        <Button variant="outlined" startIcon={<GavelIcon />} sx={{ width: "60%", height: "8vh", boxShadow: "7px 7px rgba(136, 14, 13, 0.3)" }} onClick={() => null}>Puja</Button>
+                                        <Button variant="contained" startIcon={<LocalMallIcon />} sx={{ width: "70%", height: "8vh", boxShadow: "7px 7px #888888" }} onClick={pagar}>Adquirir a precio de cierre</Button>
+                                        <Button variant="outlined" startIcon={<GavelIcon />} sx={{ width: "60%", height: "8vh", boxShadow: "7px 7px rgba(136, 14, 13, 0.3)" }} onClick={pagar}>Puja</Button>
                                     </Stack>
                                     <br></br>
                                 </Stack>
