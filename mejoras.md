@@ -5,7 +5,6 @@
 ### Mejoras importantes 
 
 - Añadir subasta: Desabilitar campos de checkbox cuando no están marcados
-- Añadir subasta: Quitar URL de photo, o hacer importación de archivos
 - Información pago: Quitar texto de confirmación de pago
 - Información pago: Hacer validaciones sobre campos de input
 - Información pago: añadir información de dirección y facturación (esta última puede ser igual a dirección) antes de ir a la página de pago (ya que para el pago se necesita estos detalles)
@@ -45,5 +44,6 @@
 
 - Index: Quitar botones de comprar ahora y puja, por algo como: ver producto
 - Añadir subasta: Mejorar lista de opciones, quizas añadir campo de "Otros"
+- Añadir subasta: Url de foro opcional.
 ### Mejoras opcionales
 

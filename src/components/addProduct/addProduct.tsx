@@ -122,7 +122,6 @@ export default function AddressForm() {
                     </Grid>
                     <Grid item xs={12} sx={{ ma: 4 }} >
                         <TextField
-                            required
                             id="URL"
                             name="URL"
                             label="URL de la foto"
