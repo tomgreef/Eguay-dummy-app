@@ -28,7 +28,6 @@
 - Producto: reducir tamaño de imagen
 - Añadir subasta: Cambiar "precio inicial" a checkbox de puja (derecha de fecha), ya que es el mínimo para hacer la puja. Cambiar texto a: "Puja mínima"
 - Añadir subasta: hacer que se selecte 1 de los checkboxes
-- Añadir subasta: enviar cliente a subasta recién creada para verificar la creación
 
 ## Mejoras opcionales 
 
@@ -46,6 +45,7 @@
 - Añadir subasta: Url de foro opcional.
 - Información pago: añadir un pequeño logo abajo con "Pago verificado por Verifone" (LOGO) ya que normalmente esto se hace en una pasarela de pago fuera de la aplicación
 - Añadida opción par introducir la puja en la página de puja.
+- Añadir subasta: enviar cliente a subasta recién creada para verificar la creación
 
 ### Mejoras opcionales
 

@@ -1,4 +1,4 @@
-import {Avatar, Button, Grid, Stack, TextField, Typography} from "@mui/material";
+import {Alert, Avatar, Button, Grid, Snackbar, Stack, TextField, Typography} from "@mui/material";
 import { Box } from "@mui/system";
 import NavBar from "../app/NavBar";
 import Productos from "../../context/productos.json"
@@ -8,6 +8,7 @@ import GavelIcon from '@mui/icons-material/Gavel';
 import Footer from '../app/Footer';
 import { Producto } from "../app/Index";
 import {useNavigate, useSearchParams} from "react-router-dom";
+import {useEffect, useState} from "react";
 
 
 const HeaderStyle = {
@@ -75,8 +76,22 @@ const Auction = () => {
         navigate("/pago")
     }
 
+    const [msg, setMsg] = useState<string>("");
+
+    useEffect(() => {
+        const msg = searchParams.get("success");
+        if (msg !== null) {
+            setMsg(msg);
+        }
+    }, [])
+
     return (
         <>
+            <Snackbar open={msg !== ""} autoHideDuration={6000}  onClose={() => setMsg("")}>
+                <Alert severity="success" variant="filled"  sx={{ width: '100%' }}>
+                    {msg}
+                </Alert>
+            </Snackbar>
             <NavBar />
             <Grid container display="flex" justifyContent="flex-start"
                 alignItems="flex-start" spacing={70} >
