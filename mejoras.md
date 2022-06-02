@@ -24,7 +24,6 @@
 
 ## Mejoras opcionales 
 
-- Información pago: quitar desplegable de fecha de tarjeta
 - Subir el proyecto a Netlify y pasar comprobador de accesibilidad
 
 ## Hechas
@@ -46,6 +45,8 @@
 - Añadir subasta: reducir tamaño de campos 
 - Añadir subasta: cambiar confirmación de subasta de "Puja guardada" a "Subasta guardada"
 - Index: Cambiar el título "Pujas recientes" a "Subastas recientes"
+- Información pago: quitar desplegable de fecha de tarjeta
+- Información pago: No marcado por defecto para el checkbox de guardar tarjeta.
 
 ### Mejoras opcionales
 

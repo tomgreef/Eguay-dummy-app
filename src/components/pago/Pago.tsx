@@ -5,7 +5,7 @@ import NavBar from "../app/NavBar";
 import {Button, Card, Checkbox, FormControlLabel, FormGroup, Stack} from "@mui/material";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
-import {DesktopDatePicker} from "@mui/x-date-pickers";
+import {DatePicker, DesktopDatePicker} from "@mui/x-date-pickers";
 import {AdapterDateFns} from "@mui/x-date-pickers/AdapterDateFns";
 import {LocalizationProvider} from "@mui/x-date-pickers/LocalizationProvider";
 import {useNavigate} from "react-router-dom";
@@ -49,14 +49,21 @@ const Pago: FC = () => {
                                 <Grid container direction="column" justifyContent="flex-start"
                                       alignContent="flex-start">
                                     <LocalizationProvider dateAdapter={AdapterDateFns}>
-                                        <DesktopDatePicker label="Fecha de caducidad" inputFormat="MM/yyyy"
-                                                           value={value} onChange={handleChange}
-                                                           renderInput={(params) => <TextField {...params} />}/>
+                                        <DatePicker
+                                            views={['year', 'month']}
+                                            label="Year and Month"
+                                            minDate={new Date()}
+                                            value={value}
+                                            onChange={(newValue) => {
+                                                setValue(newValue);
+                                            }}
+                                            renderInput={(params) => <TextField {...params} helperText={null} />}
+                                        />
                                     </LocalizationProvider>
                                 </Grid>
                                 <Grid container justifyContent="flex-start">
                                     <FormGroup>
-                                        <FormControlLabel control={<Checkbox defaultChecked/>}
+                                        <FormControlLabel control={<Checkbox/>}
                                                           label="Guardar mi tarjeta para futuras compras"/>
                                         <Button variant="contained" onClick={pagar}>Pagar ahora</Button>
                                     </FormGroup>
