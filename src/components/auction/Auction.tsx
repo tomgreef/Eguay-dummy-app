@@ -90,14 +90,14 @@ const Auction = () => {
     return (
         <>
             <Snackbar open={msg !== ""} autoHideDuration={6000}  onClose={() => setMsg("")}>
-                <Alert severity="success" variant="filled"  sx={{ width: '100%' }}>
+                <Alert severity="success" variant="filled"  sx={{ width: '100%'}}>
                     {msg}
                 </Alert>
             </Snackbar>
             <Grid container height="inherit%" justifyContent="space-between" gap={5} alignContent="center" alignItems="center">
                 <NavBar hideLinks={false}/>
                 <Grid container display="flex" justifyContent="space-around" direction="row" alignContent="center"
-                      alignItems="center" sx={{backgroundColor: "#FFFFFF",}} borderRadius={3} gap={5} padding={3}>
+                      alignItems="center" sx={{backgroundColor: "#FFFFFF", border: 1, borderColor: 'primary.main'}} borderRadius={3} gap={5} padding={3}>
                     <Grid item>
                         <Grid container justifyContent="center" alignContent="center">
                             <img height="100%" object-fit="cover" src={Image}/>
