@@ -64,6 +64,12 @@ const Pago: FC = () => {
                                             <Button variant="contained" onClick={pagar}>Pagar ahora</Button>
                                         </FormGroup>
                                     </Grid>
+                                    <Grid container direction="row" justifyContent="flex-start" alignContent="center">
+                                        <Stack direction="row" spacing={3}>
+                                            <Typography variant='h1'>Pago verificado por </Typography>
+                                            <img height="80px" src="http://uscardsystems.com/wp-content/uploads/2016/05/verifone-logo-primary-pos-2color.png"/>
+                                        </Stack>
+                                    </Grid>
                                 </Stack>
                             </Stack>
                         </Grid>

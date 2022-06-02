@@ -8,7 +8,6 @@
 - Información pago: Quitar texto de confirmación de pago
 - Información pago: Hacer validaciones sobre campos de input
 - Información pago: añadir información de dirección y facturación (esta última puede ser igual a dirección) antes de ir a la página de pago (ya que para el pago se necesita estos detalles)
-- Información pago: añadir un pequeño logo abajo con "Pago verificado por Verifone" (LOGO) ya que normalmente esto se hace en una pasarela de pago fuera de la aplicación
 - Registro: No permitir carácteres raros (regular expression)
 - Registro: Añadir notificación de registro o inicio sesión ha sido completado
 - Lista de subasta: crear una página donde se ven todas las subastas creadas por mí
@@ -45,5 +44,7 @@
 - Index: Quitar botones de comprar ahora y puja, por algo como: ver producto
 - Añadir subasta: Mejorar lista de opciones, quizas añadir campo de "Otros"
 - Añadir subasta: Url de foro opcional.
+- Información pago: añadir un pequeño logo abajo con "Pago verificado por Verifone" (LOGO) ya que normalmente esto se hace en una pasarela de pago fuera de la aplicación
+
 ### Mejoras opcionales
 
