@@ -66,7 +66,7 @@ const Index = () => {
       </Snackbar>
       <NavBar />
       <Box sx={{ padding: 4 }}>
-        <Typography variant='h1' >Pujas recientes</Typography>
+        <Typography variant='h1' >Subastas recientes</Typography>
         <Grid container spacing={2} sx={{ marginTop: 2 }}>
           {productos.map((producto: Producto) => {
             return (

@@ -17,16 +17,14 @@
 - Añadir subasta: limitar los campos
 - Añadir subasta: validación de campos (precio no puede ser negativo)
 - Añadir subasta: fecha no puede ser anterior a fecha actual
-- Añadir subasta: cambiar confirmación de subasta de "Puja guardada" a "Subasta guardada"
 - Login: cambiar mensajes de error a español
 - Registro: cambiar mensajes de error a español
 - Añadir subasta: hacer que se selecte 1 de los checkboxes
+- Registro: Añadir notificación de registro o inicio sesión ha sido completado
 
 ## Mejoras opcionales 
 
-- Index: Quitar botones de comprar ahora y puja, por algo como: ver producto
 - Información pago: quitar desplegable de fecha de tarjeta
-- Index: Cambiar el título "Pujas recientes" a "Subastas recientes"
 - Subir el proyecto a Netlify y pasar comprobador de accesibilidad
 
 ## Hechas
@@ -46,7 +44,8 @@
 - Producto: Refactorizar estructura
 - Index: Resaltar "Nueva Subasta" para que sea más visible 
 - Añadir subasta: reducir tamaño de campos 
-- Registro: Añadir notificación de registro o inicio sesión ha sido completado
+- Añadir subasta: cambiar confirmación de subasta de "Puja guardada" a "Subasta guardada"
+- Index: Cambiar el título "Pujas recientes" a "Subastas recientes"
 
 ### Mejoras opcionales
 
