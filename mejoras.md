@@ -45,6 +45,7 @@
 - Añadir subasta: Mejorar lista de opciones, quizas añadir campo de "Otros"
 - Añadir subasta: Url de foro opcional.
 - Información pago: añadir un pequeño logo abajo con "Pago verificado por Verifone" (LOGO) ya que normalmente esto se hace en una pasarela de pago fuera de la aplicación
+- Añadida opción par introducir la puja en la página de puja.
 
 ### Mejoras opcionales
 

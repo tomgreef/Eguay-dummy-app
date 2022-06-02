@@ -1,4 +1,4 @@
-import { Avatar, Button, Grid, Stack, Typography } from "@mui/material";
+import {Avatar, Button, Grid, Stack, TextField, Typography} from "@mui/material";
 import { Box } from "@mui/system";
 import NavBar from "../app/NavBar";
 import Productos from "../../context/productos.json"
@@ -115,8 +115,8 @@ const Auction = () => {
                                     <p>{producto?.description}</p>
                                 </Box>
                                 <br></br>
-                                <Stack gap={4}>
-                                    <Stack direction="row" gap={6}>
+                                <Stack gap={2}>
+                                    <Stack direction="row" gap={1}>
                                         <Typography color="text.secondary" sx={{ height: 50, color: "black", fontSize: 19 }}>
                                             Tiempo Restante :
                                         </Typography>
@@ -124,15 +124,15 @@ const Auction = () => {
                                             {remainingTime(randomDate(new Date(), new Date(2022, 6, 12)))}
                                         </Typography>
                                     </Stack>
-                                    <Stack direction="row" gap={8}>
+                                    <Stack direction="row" gap={1}>
                                         <Typography color="text.secondary" sx={{ height: 50, color: "black", fontSize: 19, paddingTop: 1 }}>
-                                            Precio Final :
+                                            Precio de cierre:
                                         </Typography>
                                         <Typography color="primary.main" sx={{ height: 50, color: "#880E0D", fontSize: 30, fontWeight: 900 }}>
                                             {producto?.price}
                                         </Typography>
                                     </Stack>
-                                    <Stack direction="row" gap={7}>
+                                    <Stack direction="row" gap={1}>
                                         <Typography color="text.secondary" sx={{ height: 50, color: "black", fontSize: 19, paddingTop: 1 }}>
                                             Puja Más Alta :
                                         </Typography>
@@ -140,9 +140,22 @@ const Auction = () => {
                                             {producto ? producto.price - 100 < 0 ? producto.price - 10 : producto.price - 100 : null}
                                         </Typography>
                                     </Stack>
-                                    <Stack gap={3}>
-                                        <Button variant="contained" startIcon={<LocalMallIcon />} sx={{ width: "70%", height: "8vh", boxShadow: "7px 7px #888888" }} onClick={pagar}>Adquirir a precio de cierre</Button>
-                                        <Button variant="outlined" startIcon={<GavelIcon />} sx={{ width: "60%", height: "8vh", boxShadow: "7px 7px rgba(136, 14, 13, 0.3)" }} onClick={pagar}>Puja</Button>
+                                    <Stack gap={4}>
+                                        <Button variant="contained" startIcon={<LocalMallIcon />} sx={{ width: "70%", height: "5vh", boxShadow: "7px 7px #888888" }} onClick={pagar}>Adquirir a precio de cierre</Button>
+                                        <Stack direction="row" gap={2}>
+                                            <Button variant="outlined" startIcon={<GavelIcon />} sx={{ width: "30%", height: "5vh"}} onClick={pagar}>Puja</Button>
+                                            <TextField
+                                                id="precioDePuja"
+                                                label="Number"
+                                                type="number"
+                                                InputLabelProps={{
+                                                    shrink: true,
+                                                }}
+                                                defaultValue={producto ? producto.price - 100 < 0 ? producto.price - 10 + 1 : producto.price - 100 + 1 : 0}
+                                                sx={{height: "5vh"}}
+                                                variant="filled"
+                                            />
+                                        </Stack>
                                     </Stack>
                                     <br></br>
                                 </Stack>
