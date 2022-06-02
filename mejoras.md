@@ -1,9 +1,10 @@
 # Mejoras 
 
-## Mejoras imprtantes 
+## Por hacer
+
+### Mejoras importantes 
 
 - Añadir subasta: Desabilitar campos de checkbox cuando no están marcados
-- Index: Quitar botones de comprar ahora y puja, por algo como: ver producto
 - Añadir subasta: Mejorar lista de opciones, quizas añadir campo de "Otros"
 - Añadir subasta: Quitar URL de photo, o hacer importación de archivos
 - Información pago: Quitar texto de confirmación de pago
@@ -34,6 +35,16 @@
 
 ## Mejoras opcionales 
 
+- Index: Quitar botones de comprar ahora y puja, por algo como: ver producto
 - Información pago: quitar desplegable de fecha de tarjeta
 - Index: Cambiar el título "Pujas recientes" a "Subastas recientes"
 - Subir el proyecto a Netlify y pasar comprobador de accesibilidad
+
+## Hechas
+
+### Mejoras importantes
+
+- Index: Quitar botones de comprar ahora y puja, por algo como: ver producto
+
+### Mejoras opcionales
+

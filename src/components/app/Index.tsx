@@ -99,8 +99,7 @@ const Index = () => {
                     minHeight: 100
                     , maxHeight: 100, display: "flex", flexDirection: "column", width: "100%", gap: 2
                   }}>
-                    <Button variant="contained" sx={{ width: "100%" }} onClick={() => null}>Comprar Ahora</Button>
-                    <Button variant="outlined" sx={{ width: "100%", margin: "0px !important" }} onClick={() => null}>Puja</Button>
+                    <Button variant="contained" sx={{ width: "100%" }} onClick={() => null}>Ver producto</Button>
                   </CardActions>
                 </Card>
               </Grid>
