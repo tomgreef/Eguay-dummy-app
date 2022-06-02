@@ -24,7 +24,6 @@
 - Login: cambiar mensajes de error a español
 - Registro: cambiar mensajes de error a español
 - Producto: reducir tamaño de imagen
-- Añadir subasta: Cambiar "precio inicial" a checkbox de puja (derecha de fecha), ya que es el mínimo para hacer la puja. Cambiar texto a: "Puja mínima"
 - Añadir subasta: hacer que se selecte 1 de los checkboxes
 
 ## Mejoras opcionales 
@@ -46,6 +45,7 @@
 - Añadir subasta: enviar cliente a subasta recién creada para verificar la creación
 - Información pago: Quitar texto de confirmación de pago
 - Producto: añadir divisa a precios
+- Añadir subasta: Cambiar "precio inicial" a checkbox de puja (derecha de fecha), ya que es el mínimo para hacer la puja. Cambiar texto a: "Puja mínima"
 
 ### Mejoras opcionales
 

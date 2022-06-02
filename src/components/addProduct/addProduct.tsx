@@ -173,7 +173,7 @@ export default function AddressForm() {
                         <Box sx={{ '& > :not(style)': { m: 1 } }}>
                             <TextField
                                 id="input-with-icon-textfield"
-                                label="Precio inicial"
+                                label="Puja mínima"
 
                                 InputProps={{
                                     startAdornment: (
