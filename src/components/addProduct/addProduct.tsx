@@ -103,17 +103,16 @@ export default function AddressForm() {
     const [value, setValue] = React.useState<Date | null>(new Date());
 
     return (
-        <Container component="main" sx={{ mb: 4 }}>
+        <Container component="main" sx={{ mb: 4, width: "40%"}}>
             <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, border: 1, borderColor: 'primary.main', p: { xs: 2, md: 3 } }}>
-                <Typography variant="h6" gutterBottom>
-                </Typography><Grid container spacing={3}>
+                <Typography variant="h1">Añadir puja</Typography>
+                <Grid container spacing={3}>
                     <Grid item xs={12} sx={{ ma: 4 }}>
                         <TextField
                             required
                             id="Titulo"
                             name="Titulo"
                             label="Titulo"
-                            fullWidth
                             margin="normal"
                             autoComplete="given-name"
                             variant="filled"
@@ -125,7 +124,6 @@ export default function AddressForm() {
                             id="URL"
                             name="URL"
                             label="URL de la foto"
-                            fullWidth
                             margin="normal"
                             autoComplete="family-name"
                             variant="filled" />
@@ -136,12 +134,10 @@ export default function AddressForm() {
                             select
                             value={currency}
                             onChange={handleChange}
-                            fullWidth
                             inputProps={{ min: 0 }}
                             margin="normal"
                             SelectProps={{
                                 native: true,
-
                             }}
                             helperText="Selecciona la categoria deseada"
                             variant="filled"
@@ -161,7 +157,6 @@ export default function AddressForm() {
                             id="Descripcion"
                             name="Descripcion"
                             label="Descripcion"
-                            fullWidth
                             multiline
                             rows={3}
                             margin="normal"

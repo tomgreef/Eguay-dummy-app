@@ -15,7 +15,6 @@
 - Perfil: Crear datos de usuario, dirección de entrega y dirección de envio
 - Información pago: añadir resumen de compra después de datos de tarjeta, para verificar y confirmar la compra luego
 - Añadir subasta: limitar los campos
-- Añadir subasta: reducir tamaño de campos 
 - Añadir subasta: validación de campos (precio no puede ser negativo)
 - Añadir subasta: fecha no puede ser anterior a fecha actual
 - Añadir subasta: cambiar confirmación de subasta de "Puja guardada" a "Subasta guardada"
@@ -47,6 +46,7 @@
 - Producto: reducir tamaño de imagen
 - Producto: Refactorizar estructura
 - Index: Resaltar "Nueva Subasta" para que sea más visible 
+- Añadir subasta: reducir tamaño de campos 
 
 ### Mejoras opcionales
 
