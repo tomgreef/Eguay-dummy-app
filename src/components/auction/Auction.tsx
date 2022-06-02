@@ -1,4 +1,4 @@
-import {Alert, Avatar, Button, Grid, Snackbar, Stack, TextField, Typography} from "@mui/material";
+import {Alert, Avatar, Button, Grid, InputAdornment, Snackbar, Stack, TextField, Typography} from "@mui/material";
 import { Box } from "@mui/system";
 import NavBar from "../app/NavBar";
 import Productos from "../../context/productos.json"
@@ -9,6 +9,8 @@ import Footer from '../app/Footer';
 import { Producto } from "../app/Index";
 import {useNavigate, useSearchParams} from "react-router-dom";
 import {useEffect, useState} from "react";
+import EuroIcon from "@mui/icons-material/Euro";
+import * as React from "react";
 
 
 const HeaderStyle = {
@@ -144,7 +146,7 @@ const Auction = () => {
                                             Precio de cierre:
                                         </Typography>
                                         <Typography color="primary.main" sx={{ height: 50, color: "#880E0D", fontSize: 30, fontWeight: 900 }}>
-                                            {producto?.price}
+                                            {producto?.price}€
                                         </Typography>
                                     </Stack>
                                     <Stack direction="row" gap={1}>
@@ -152,8 +154,9 @@ const Auction = () => {
                                             Puja Más Alta :
                                         </Typography>
                                         <Typography color="primary.main" sx={{ height: 50, color: "#625959", fontSize: 30, fontWeight: 900 }}>
-                                            {producto ? producto.price - 100 < 0 ? producto.price - 10 : producto.price - 100 : null}
+                                            {producto ? producto.price - 100 < 0 ? producto.price - 10 : producto.price - 100 : null}€
                                         </Typography>
+
                                     </Stack>
                                     <Stack gap={4}>
                                         <Button variant="contained" startIcon={<LocalMallIcon />} sx={{ width: "70%", height: "5vh", boxShadow: "7px 7px #888888" }} onClick={pagar}>Adquirir a precio de cierre</Button>
