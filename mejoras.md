@@ -23,7 +23,6 @@
 - Añadir subasta: cambiar confirmación de subasta de "Puja guardada" a "Subasta guardada"
 - Login: cambiar mensajes de error a español
 - Registro: cambiar mensajes de error a español
-- Producto: reducir tamaño de imagen
 - Añadir subasta: hacer que se selecte 1 de los checkboxes
 
 ## Mejoras opcionales 
@@ -46,6 +45,8 @@
 - Información pago: Quitar texto de confirmación de pago
 - Producto: añadir divisa a precios
 - Añadir subasta: Cambiar "precio inicial" a checkbox de puja (derecha de fecha), ya que es el mínimo para hacer la puja. Cambiar texto a: "Puja mínima"
+- Producto: reducir tamaño de imagen
+- Producto: Refactorizar estructura
 
 ### Mejoras opcionales
 
