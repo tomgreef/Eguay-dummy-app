@@ -28,8 +28,8 @@ const NavBar: FC<NavBarProps> = ({ hideLinks }) => {
                     {hideLinks ? null : user ?
                         <Box>
                             <Link to="/crearProducto" style={{ textDecoration: "none", marginRight: 4 }}><Button color="secondary">Nueva Subasta</Button></Link>
-                            {/* <Link to="/perfil" style={{ textDecoration: "none", marginRight: 4 }}><Button color='secondary' >Mi Perfil</Button></Link>
-                            <Button onClick={() => signOut()}>Cerrar Sesión</Button> */}
+                            {/* <Link to="/perfil" style={{ textDecoration: "none", marginRight: 4 }}><Button color='secondary' >Mi Perfil</Button></Link> */}
+                            <Button onClick={() => signOut()}>Cerrar Sesión</Button>
                         </Box>
                         :
                         <Box>
