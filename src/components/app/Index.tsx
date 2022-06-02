@@ -59,8 +59,12 @@ const Index = () => {
 
   return (
     <>
-      <Snackbar open={msg !== ""} autoHideDuration={6000}  onClose={() => setMsg("")}>
-        <Alert severity="success" sx={{ width: '100%' }}>
+      <Snackbar open={msg !== ""} autoHideDuration={6000} onClose={() => setMsg("")}
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "center"
+        }}>
+        <Alert severity="success" sx={{ width: '100%', fontSize: 20, marginTop: 4 }}>
           {msg}
         </Alert>
       </Snackbar>

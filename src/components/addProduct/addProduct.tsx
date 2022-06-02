@@ -11,6 +11,8 @@ import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { Navigate, useNavigate } from 'react-router-dom';
+import NavBar from '../app/NavBar';
+import Footer from '../app/Footer';
 
 
 
@@ -55,107 +57,80 @@ export default function AddressForm() {
     const [value, setValue] = React.useState<Date | null>(new Date());
 
     return (
-        <Container component="main" sx={{ mb: 4 }}>
-            <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, border: 1, borderColor: 'primary.main', p: { xs: 2, md: 3 } }}>
-                <Typography variant="h6" gutterBottom>
-                </Typography><Grid container spacing={3}>
-                    <Grid item xs={12} sx={{ ma: 4 }}>
-                        <TextField
-                            required
-                            id="Titulo"
-                            name="Titulo"
-                            label="Titulo"
-                            fullWidth
-                            margin="normal"
-                            autoComplete="given-name"
-                            variant="filled"
-                        />
-
-                    </Grid>
-                    <Grid item xs={12} sx={{ ma: 4 }} >
-                        <TextField
-                            required
-                            id="URL"
-                            name="URL"
-                            label="URL de la foto"
-                            fullWidth
-                            margin="normal"
-                            autoComplete="family-name"
-                            variant="filled" />
-                    </Grid>
-                    <Grid item xs={12} sm={7}  >
-                        <TextField
-                            id="filled-select-currency-native"
-                            select
-                            value={currency}
-                            onChange={handleChange}
-                            fullWidth
-                            inputProps={{ min: 0 }}
-                            margin="normal"
-                            SelectProps={{
-                                native: true,
-
-                            }}
-                            helperText="Selecciona la categoria deseada"
-                            variant="filled"
-
-                        >
-                            {currencies.map((option) => (
-                                <option key={option.value} value={option.value}>
-                                    {option.label}
-                                </option>
-                            ))}
-                        </TextField>
-                    </Grid>
-
-                    <Grid item xs={12}>
-                        <TextField
-                            required
-                            id="Descripcion"
-                            name="Descripcion"
-                            label="Descripcion"
-                            fullWidth
-                            multiline
-                            rows={3}
-                            margin="normal"
-                            autoComplete="shipping address-line1"
-                            variant="filled" />
-
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Box sx={{ '& > :not(style)': { m: 1 } }}>
+        <>
+            <NavBar />
+            <Container component="main" sx={{ mb: 4 }}>
+                <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, border: 1, borderColor: 'primary.main', p: { xs: 2, md: 3 } }}>
+                    <Typography variant="h6" gutterBottom>
+                    </Typography><Grid container spacing={3}>
+                        <Grid item xs={12} sx={{ ma: 4 }}>
                             <TextField
-                                id="input-with-icon-textfield"
-                                label="Precio inicial"
-
-                                InputProps={{
-                                    startAdornment: (
-                                        <InputAdornment position="start">
-                                            <EuroIcon />
-                                        </InputAdornment>
-                                    ),
-                                }}
+                                required
+                                id="Titulo"
+                                name="Titulo"
+                                label="Titulo"
+                                fullWidth
+                                margin="normal"
+                                autoComplete="given-name"
                                 variant="filled"
                             />
 
-                        </Box>
-                    </Grid>
-                    <Grid item xs={12}   >
-                        <Stack spacing={5}>
-                            <Grid container
-                                direction="row"
-                                justifyContent="flex-start"
-                                alignItems="flex-end"
-                                gap={4}
-                            >
-                                <Stack sx={{ m: 1 }} direction="row" gap={1} >
-                                    <input type="checkbox" style={mystyle} />
-                                    Precio de compra directa
-                                </Stack>
+                        </Grid>
+                        <Grid item xs={12} sx={{ ma: 4 }} >
+                            <TextField
+                                required
+                                id="URL"
+                                name="URL"
+                                label="URL de la foto"
+                                fullWidth
+                                margin="normal"
+                                autoComplete="family-name"
+                                variant="filled" />
+                        </Grid>
+                        <Grid item xs={12} sm={7}  >
+                            <TextField
+                                id="filled-select-currency-native"
+                                select
+                                value={currency}
+                                onChange={handleChange}
+                                fullWidth
+                                inputProps={{ min: 0 }}
+                                margin="normal"
+                                SelectProps={{
+                                    native: true,
 
+                                }}
+                                helperText="Selecciona la categoria deseada"
+                                variant="filled"
+
+                            >
+                                {currencies.map((option) => (
+                                    <option key={option.value} value={option.value}>
+                                        {option.label}
+                                    </option>
+                                ))}
+                            </TextField>
+                        </Grid>
+
+                        <Grid item xs={12}>
+                            <TextField
+                                required
+                                id="Descripcion"
+                                name="Descripcion"
+                                label="Descripcion"
+                                fullWidth
+                                multiline
+                                rows={3}
+                                margin="normal"
+                                autoComplete="shipping address-line1"
+                                variant="filled" />
+
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Box sx={{ '& > :not(style)': { m: 1 } }}>
                                 <TextField
-                                    sx={{ m: 1 }}
                                     id="input-with-icon-textfield"
+                                    label="Precio inicial"
 
                                     InputProps={{
                                         startAdornment: (
@@ -164,54 +139,80 @@ export default function AddressForm() {
                                             </InputAdornment>
                                         ),
                                     }}
-                                    variant="standard"
+                                    variant="filled"
                                 />
 
+                            </Box>
+                        </Grid>
+                        <Grid item xs={12}   >
+                            <Stack spacing={5}>
+                                <Grid container
+                                    direction="row"
+                                    justifyContent="flex-start"
+                                    alignItems="flex-end"
+                                    gap={4}
+                                >
+                                    <Stack sx={{ m: 1 }} direction="row" gap={1} >
+                                        <input type="checkbox" style={mystyle} />
+                                        Precio de compra directa
+                                    </Stack>
 
-                            </Grid>
+                                    <TextField
+                                        sx={{ m: 1 }}
+                                        id="input-with-icon-textfield"
 
-                            <Grid container
-                                direction="row"
-                                justifyContent="flex-start"
-                                alignItems="flex-end"
-                                margin="normal"
-                                gap={4}
-                                sx={{ m: 0 }}
-                            >
-                                {/* <FormControlLabel
+                                        InputProps={{
+                                            startAdornment: (
+                                                <InputAdornment position="start">
+                                                    <EuroIcon />
+                                                </InputAdornment>
+                                            ),
+                                        }}
+                                        variant="standard"
+                                    />
+
+
+                                </Grid>
+
+                                <Grid container
+                                    direction="row"
+                                    justifyContent="flex-start"
+                                    alignItems="flex-end"
+                                    margin="normal"
+                                    gap={4}
+                                    sx={{ m: 0 }}
+                                >
+                                    {/* <FormControlLabel
                             sx={{ m: -1  }}
                             control={<Checkbox color="primary" name="PrecioDeCompra" value="yes"/>}
                             label="La puja se la lleva el mejor postor el "
 
                         /> */}
-                                <Stack sx={{ m: 1 }} direction="row" gap={1} >
-                                    <input type="checkbox" style={mystyle} />
-                                    La puja se la lleva el mejor postor el
-                                </Stack>
-                                <LocalizationProvider dateAdapter={AdapterDateFns}>
-                                    <DateTimePicker
-                                        renderInput={(props) => <TextField {...props} />}
+                                    <Stack sx={{ m: 1 }} direction="row" gap={1} >
+                                        <input type="checkbox" style={mystyle} />
+                                        La puja se la lleva el mejor postor el
+                                    </Stack>
+                                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                        <DateTimePicker
+                                            renderInput={(props) => <TextField {...props} />}
 
-                                        value={value}
-                                        onChange={(newValue) => {
-                                            setValue(newValue);
-                                        }}
+                                            value={value}
+                                            onChange={(newValue) => {
+                                                setValue(newValue);
+                                            }}
 
-                                    />
-                                </LocalizationProvider>
-                            </Grid>
-                            <Grid >
-                                <Button variant="contained" onClick={createProduct}>Añadir</Button>
-                            </Grid>
-                        </Stack>
+                                        />
+                                    </LocalizationProvider>
+                                </Grid>
+                                <Grid >
+                                    <Button variant="contained" onClick={createProduct}>Añadir</Button>
+                                </Grid>
+                            </Stack>
+                        </Grid>
                     </Grid>
-
-                </Grid>
-
-
-            </Paper>
-        </Container>
-
-
+                </Paper>
+            </Container>
+            <Footer />
+        </>
     );
 }

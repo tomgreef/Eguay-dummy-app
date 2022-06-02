@@ -1,5 +1,5 @@
 import { AppBar, Box, Button, Toolbar } from '@mui/material'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { FC, useEffect, useState } from 'react'
 
 interface NavBarProps {
@@ -8,6 +8,7 @@ interface NavBarProps {
 
 const NavBar: FC<NavBarProps> = ({ hideLinks }) => {
     const [user, setUser] = useState<string | null>(null)
+    const navigate = useNavigate()
 
     useEffect(() => {
         setUser(localStorage.getItem('activeUser'))
@@ -16,6 +17,7 @@ const NavBar: FC<NavBarProps> = ({ hideLinks }) => {
     const signOut = () => {
         localStorage.removeItem("activeUser")
         setUser(null)
+        navigate("/?success=Sesión+cerrada")
     }
 
     return (
