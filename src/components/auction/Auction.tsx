@@ -87,12 +87,11 @@ const Auction = () => {
     }
 
     const pujar = (producto: Producto | undefined) => {
-        navigate("/pago?precio=" + getPuja()  + "&compra=Directa")
+        navigate("/pago?precio=" + getPuja(producto)  + "&compra=Directa")
     }
 
-    function getPuja(){
-        return puja == undefined ? 0 : puja;
-        //return (pujaMasAlta(producto) + 1)
+    function getPuja(producto: Producto | undefined){
+        return puja == undefined ? pujaMasAlta(producto) + 1 : puja;
     }
 
     function pujaMasAlta(producto: Producto | undefined) {
