@@ -18,20 +18,68 @@ import Footer from '../app/Footer';
 
 const currencies = [
     {
-        value: ' Jugeutes Adultos',
-        label: ' Jugeutes Adultos',
+        value: 'Juguetes',
+        label: 'Juguetes',
     },
     {
-        value: ' Viajes',
-        label: ' Viajes',
+        value: 'Viajes',
+        label: 'Viajes',
     },
     {
-        value: ' Mobiliario',
-        label: ' Mobiliario',
+        value: 'Mobiliario',
+        label: 'Mobiliario',
     },
     {
-        value: ' Tech',
-        label: 'Tech',
+        value: 'Tectonogía',
+        label: 'Tectonogía',
+    },
+    {
+        value: 'Domésticos',
+        label: 'Domésticos',
+    },
+    {
+        value: 'Ropa',
+        label: 'Ropa',
+    },
+    {
+        value: 'Bebés',
+        label: 'Bebés',
+    },
+    {
+        value: 'Accesorios',
+        label: 'Accesorios',
+    },
+    {
+        value: 'Papelería',
+        label: 'Papelería',
+    },
+    {
+        value: 'Belleza',
+        label: 'Belleza',
+    },
+    {
+        value: 'Salud',
+        label: 'Salud',
+    },
+    {
+        value: 'Arte',
+        label: 'Arte',
+    },
+    {
+        value: 'Comida',
+        label: 'Comida',
+    },
+    {
+        value: 'Vehículos',
+        label: 'Vehículos',
+    },
+    {
+        value: 'Inmoviliarios',
+        label: 'Inmoviliarios',
+    },
+    {
+        value: 'Otros...',
+        label: 'Otros...',
     },
 ];
 
@@ -48,7 +96,7 @@ export default function AddressForm() {
     const [currency, setCurrency] = React.useState('EUR');
 
     const createProduct = () => {
-        navigate("/?success=Puja+guardada")
+        navigate("/producto?id=1&success=Subasta+guardada")
     }
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -57,21 +105,80 @@ export default function AddressForm() {
     const [value, setValue] = React.useState<Date | null>(new Date());
 
     return (
-        <>
-            <NavBar />
-            <Container component="main" sx={{ mb: 4 }}>
-                <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, border: 1, borderColor: 'primary.main', p: { xs: 2, md: 3 } }}>
-                    <Typography variant="h6" gutterBottom>
-                    </Typography><Grid container spacing={3}>
-                        <Grid item xs={12} sx={{ ma: 4 }}>
+        <Container component="main" sx={{ mb: 4, width: "40%"}}>
+            <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, border: 1, borderColor: 'primary.main', p: { xs: 2, md: 3 } }}>
+                <Typography variant="h1">Añadir puja</Typography>
+                <Grid container spacing={3}>
+                    <Grid item xs={12} sx={{ ma: 4 }}>
+                        <TextField
+                            required
+                            id="Titulo"
+                            name="Titulo"
+                            label="Titulo"
+                            margin="normal"
+                            autoComplete="given-name"
+                            variant="filled"
+                        />
+
+                    </Grid>
+                    <Grid item xs={12} sx={{ ma: 4 }} >
+                        <TextField
+                            id="URL"
+                            name="URL"
+                            label="URL de la foto"
+                            margin="normal"
+                            autoComplete="family-name"
+                            variant="filled" />
+                    </Grid>
+                    <Grid item xs={12} sm={7}  >
+                        <TextField
+                            id="filled-select-currency-native"
+                            select
+                            value={currency}
+                            onChange={handleChange}
+                            inputProps={{ min: 0 }}
+                            margin="normal"
+                            SelectProps={{
+                                native: true,
+                            }}
+                            helperText="Selecciona la categoria deseada"
+                            variant="filled"
+
+                        >
+                            {currencies.map((option) => (
+                                <option key={option.value} value={option.value}>
+                                    {option.label}
+                                </option>
+                            ))}
+                        </TextField>
+                    </Grid>
+
+                    <Grid item xs={12}>
+                        <TextField
+                            required
+                            id="Descripcion"
+                            name="Descripcion"
+                            label="Descripcion"
+                            multiline
+                            rows={3}
+                            margin="normal"
+                            autoComplete="shipping address-line1"
+                            variant="filled" />
+
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Box sx={{ '& > :not(style)': { m: 1 } }}>
                             <TextField
-                                required
-                                id="Titulo"
-                                name="Titulo"
-                                label="Titulo"
-                                fullWidth
-                                margin="normal"
-                                autoComplete="given-name"
+                                id="input-with-icon-textfield"
+                                label="Puja mínima"
+
+                                InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position="start">
+                                            <EuroIcon />
+                                        </InputAdornment>
+                                    ),
+                                }}
                                 variant="filled"
                             />
 

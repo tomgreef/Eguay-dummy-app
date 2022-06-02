@@ -1,6 +1,7 @@
 import { AppBar, Box, Button, Toolbar } from '@mui/material'
 import { Link, useNavigate } from 'react-router-dom'
 import { FC, useEffect, useState } from 'react'
+import * as React from "react";
 
 interface NavBarProps {
     hideLinks?: boolean
@@ -20,6 +21,12 @@ const NavBar: FC<NavBarProps> = ({ hideLinks }) => {
         navigate("/?success=Sesión+cerrada")
     }
 
+    const navigate = useNavigate();
+
+    function nuevaSubasta() {
+        navigate("/crearProducto")
+    }
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static" sx={{ bgcolor: "background.default" }} elevation={0}>
@@ -29,7 +36,7 @@ const NavBar: FC<NavBarProps> = ({ hideLinks }) => {
                     </Link>
                     {hideLinks ? null : user ?
                         <Box>
-                            <Link to="/crearProducto" style={{ textDecoration: "none", marginRight: 4 }}><Button color="secondary">Nueva Subasta</Button></Link>
+                            <Button variant="contained" onClick={nuevaSubasta}>Nueva Subasta</Button>
                             {/* <Link to="/perfil" style={{ textDecoration: "none", marginRight: 4 }}><Button color='secondary' >Mi Perfil</Button></Link> */}
                             <Button onClick={() => signOut()}>Cerrar Sesión</Button>
                         </Box>
