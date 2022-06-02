@@ -2,8 +2,6 @@
 
 ## Por hacer
 
-### Mejoras importantes 
-
 - Añadir subasta: Desabilitar campos de checkbox cuando no están marcados
 - Información pago: Hacer validaciones sobre campos de input
 - Información pago: añadir información de dirección y facturación (esta última puede ser igual a dirección) antes de ir a la página de pago (ya que para el pago se necesita estos detalles)
@@ -19,14 +17,9 @@
 - Registro: cambiar mensajes de error a español
 - Añadir subasta: hacer que se selecte 1 de los checkboxes
 - Registro: Añadir notificación de registro o inicio sesión ha sido completado
-
-## Mejoras opcionales 
-
 - Subir el proyecto a Netlify y pasar comprobador de accesibilidad
 
 ## Hechas
-
-### Mejoras importantes
 
 - Index: Quitar botones de comprar ahora y puja, por algo como: ver producto
 - Añadir subasta: Mejorar lista de opciones, quizas añadir campo de "Otros"
@@ -47,6 +40,4 @@
 - Información pago: No marcado por defecto para el checkbox de guardar tarjeta.
 - Información de pago: distinguir entre una compra y una puja
 - Información pago: añadir resumen de compra después de datos de tarjeta, para verificar y confirmar la compra luego
-
-### Mejoras opcionales
 
