@@ -5,7 +5,6 @@
 ### Mejoras importantes 
 
 - Añadir subasta: Desabilitar campos de checkbox cuando no están marcados
-- Información pago: Quitar texto de confirmación de pago
 - Información pago: Hacer validaciones sobre campos de input
 - Información pago: añadir información de dirección y facturación (esta última puede ser igual a dirección) antes de ir a la página de pago (ya que para el pago se necesita estos detalles)
 - Registro: No permitir carácteres raros (regular expression)
@@ -46,6 +45,7 @@
 - Información pago: añadir un pequeño logo abajo con "Pago verificado por Verifone" (LOGO) ya que normalmente esto se hace en una pasarela de pago fuera de la aplicación
 - Añadida opción par introducir la puja en la página de puja.
 - Añadir subasta: enviar cliente a subasta recién creada para verificar la creación
+- Información pago: Quitar texto de confirmación de pago
 
 ### Mejoras opcionales
 
