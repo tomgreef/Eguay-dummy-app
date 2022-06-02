@@ -16,20 +16,68 @@ import { Navigate, useNavigate } from 'react-router-dom';
 
 const currencies = [
     {
-        value: ' Jugeutes Adultos',
-        label: ' Jugeutes Adultos',
+        value: 'Juguetes',
+        label: 'Juguetes',
     },
     {
-        value: ' Viajes',
-        label: ' Viajes',
+        value: 'Viajes',
+        label: 'Viajes',
     },
     {
-        value: ' Mobiliario',
-        label: ' Mobiliario',
+        value: 'Mobiliario',
+        label: 'Mobiliario',
     },
     {
-        value: ' Tech',
-        label: 'Tech',
+        value: 'Tectonogía',
+        label: 'Tectonogía',
+    },
+    {
+        value: 'Domésticos',
+        label: 'Domésticos',
+    },
+    {
+        value: 'Ropa',
+        label: 'Ropa',
+    },
+    {
+        value: 'Bebés',
+        label: 'Bebés',
+    },
+    {
+        value: 'Accesorios',
+        label: 'Accesorios',
+    },
+    {
+        value: 'Papelería',
+        label: 'Papelería',
+    },
+    {
+        value: 'Belleza',
+        label: 'Belleza',
+    },
+    {
+        value: 'Salud',
+        label: 'Salud',
+    },
+    {
+        value: 'Arte',
+        label: 'Arte',
+    },
+    {
+        value: 'Comida',
+        label: 'Comida',
+    },
+    {
+        value: 'Vehículos',
+        label: 'Vehículos',
+    },
+    {
+        value: 'Inmoviliarios',
+        label: 'Inmoviliarios',
+    },
+    {
+        value: 'Otros...',
+        label: 'Otros...',
     },
 ];
 
