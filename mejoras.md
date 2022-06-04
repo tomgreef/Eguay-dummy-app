@@ -9,7 +9,6 @@
 - Añadir subasta: limitar los campos
 - Añadir subasta: validación de campos (precio no puede ser negativo)
 - Añadir subasta: fecha no puede ser anterior a fecha actual
-- Login: cambiar mensajes de error a español
 - Añadir subasta: hacer que se selecte 1 de los checkboxes
 - Subir el proyecto a Netlify y pasar comprobador de accesibilidad
 - Subasta: al cambiar el precio de subasta se cambia la fecha, hay que arreglar esto
@@ -40,3 +39,4 @@
 - Registro: Añadir notificación de registro o inicio sesión ha sido completado
 - Registro: cambiar mensajes de error a español
 - Registro: No permitir carácteres raros (regular expression)
+- Login: cambiar mensajes de error a español
