@@ -68,14 +68,38 @@ const Auction = () => {
     const productos: Producto[] = Productos.products;
     const [searchParams, setSearchParams] = useSearchParams();
 
+    const [puja, setPuja] = useState<number>();
+
     const producto: Producto | undefined = productos.find((producto: Producto) => producto.id.toString() === searchParams.get("id"))
 
     const Image = producto?.thumbnail
 
     const navigate = useNavigate()
 
-    const pagar = () => {
-        navigate("/pago")
+    const compraDirecta = (producto: Producto | undefined) => {
+        let precio: any;
+        if (producto !== null && producto !== undefined) {
+            precio = producto.price;
+        } else {
+            precio = 0;
+        }
+        navigate("/pago?precio=" + precio + "&compra=Puja")
+    }
+
+    const pujar = (producto: Producto | undefined) => {
+        navigate("/pago?precio=" + getPuja(producto)  + "&compra=Directa")
+    }
+
+    function getPuja(producto: Producto | undefined){
+        return puja == undefined ? pujaMasAlta(producto) + 1 : puja;
+    }
+
+    function pujaMasAlta(producto: Producto | undefined) {
+        if (producto !== null && producto !== undefined) {
+            return producto ? producto.price - 100 < 0 ? producto.price - 10 + 1 : producto.price - 100 + 1 : 0
+        }else{
+            return 0;
+        }
     }
 
     const [msg, setMsg] = useState<string>("");
@@ -135,14 +159,14 @@ const Auction = () => {
                                                 Puja Más Alta :
                                             </Typography>
                                             <Typography color="primary.main" sx={{ height: 50, color: "#625959", fontSize: 30, fontWeight: 900 }}>
-                                                {producto ? producto.price - 100 < 0 ? producto.price - 10 : producto.price - 100 : null}€
+                                                {pujaMasAlta(producto)}€
                                             </Typography>
 
                                         </Stack>
                                         <Stack gap={4}>
-                                            <Button variant="contained" startIcon={<LocalMallIcon />} sx={{ width: "70%", height: "5vh", boxShadow: "7px 7px #888888" }} onClick={pagar}>Adquirir a precio de cierre</Button>
+                                            <Button variant="contained" startIcon={<LocalMallIcon />} sx={{ width: "70%", height: "5vh", boxShadow: "7px 7px #888888" }} onClick={() => compraDirecta(producto)}>Adquirir a precio de cierre</Button>
                                             <Stack direction="row" gap={2}>
-                                                <Button variant="outlined" startIcon={<GavelIcon />} sx={{ width: "30%", height: "5vh"}} onClick={pagar}>Puja</Button>
+                                                <Button variant="outlined" startIcon={<GavelIcon />} sx={{ width: "30%", height: "5vh"}} onClick={() => pujar(producto)}>Puja</Button>
                                                 <TextField
                                                     id="precioDePuja"
                                                     label="Number"
@@ -150,9 +174,10 @@ const Auction = () => {
                                                     InputLabelProps={{
                                                         shrink: true,
                                                     }}
-                                                    defaultValue={producto ? producto.price - 100 < 0 ? producto.price - 10 + 1 : producto.price - 100 + 1 : 0}
+                                                    defaultValue={pujaMasAlta(producto) + 1}
                                                     sx={{height: "5vh"}}
                                                     variant="filled"
+                                                    onChange={(e) => {setPuja(Number(e.target.value))}}
                                                 />
                                             </Stack>
                                         </Stack>

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1bcbbb1d-c6ca-45ec-b430-a547b0fe8f26" name="Changes" comment="" />
+    <list default="true" id="1bcbbb1d-c6ca-45ec-b430-a547b0fe8f26" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,13 +42,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/pedro/projects/interfaces-usuario/node_modules/typescript/lib&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/home/pedro/projects/interfaces-usuario/node_modules/typescript/lib"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\parsa\IdeaProjects\interfaces-usuario\src\components\register" />
@@ -72,6 +74,8 @@
       <workItem from="1653897370624" duration="1352000" />
       <workItem from="1654101066746" duration="97000" />
       <workItem from="1654101297278" duration="13413000" />
+      <workItem from="1654205455319" duration="356000" />
+      <workItem from="1654206047039" duration="327000" />
     </task>
     <servers />
   </component>
