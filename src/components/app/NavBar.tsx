@@ -34,7 +34,7 @@ const NavBar: FC<NavBarProps> = ({ hideLinks }) => {
                     </Link>
                     {hideLinks ? null : user ?
                         <Box >
-                            <Button variant="contained" onClick={nuevaSubasta} style={{ marginRight: 4 }}>Nueva Subasta</Button>
+                            <Button variant="contained" onClick={nuevaSubasta} style={{ marginRight: 8 }}>Nueva Subasta</Button>
                             {/* <Link to="/perfil" style={{ textDecoration: "none", marginRight: 4 }}><Button color='secondary' >Mi Perfil</Button></Link> */}
                             <Button onClick={() => signOut()}>Cerrar Sesión</Button>
                         </Box>

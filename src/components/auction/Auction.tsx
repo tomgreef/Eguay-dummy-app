@@ -1,4 +1,4 @@
-import {Alert, Avatar, Button, Grid, InputAdornment, Snackbar, Stack, TextField, Typography} from "@mui/material";
+import { Alert, Avatar, Button, Grid, InputAdornment, Snackbar, Stack, TextField, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import NavBar from "../app/NavBar";
 import Productos from "../../context/productos.json"
@@ -7,8 +7,8 @@ import LocalMallIcon from '@mui/icons-material/LocalMall';
 import GavelIcon from '@mui/icons-material/Gavel';
 import Footer from '../app/Footer';
 import { Producto } from "../app/Index";
-import {useNavigate, useSearchParams} from "react-router-dom";
-import {useEffect, useState} from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import EuroIcon from "@mui/icons-material/Euro";
 import * as React from "react";
 
@@ -83,21 +83,21 @@ const Auction = () => {
         } else {
             precio = 0;
         }
-        navigate("/pago?precio=" + precio + "&compra=Puja")
+        navigate("/pago?precio=" + precio + "&compra=Directa")
     }
 
     const pujar = (producto: Producto | undefined) => {
-        navigate("/pago?precio=" + getPuja(producto)  + "&compra=Directa")
+        navigate("/pago?precio=" + getPuja(producto) + "&compra=Puja")
     }
 
-    function getPuja(producto: Producto | undefined){
+    function getPuja(producto: Producto | undefined) {
         return puja == undefined ? pujaMasAlta(producto) + 1 : puja;
     }
 
     function pujaMasAlta(producto: Producto | undefined) {
         if (producto !== null && producto !== undefined) {
             return producto ? producto.price - 100 < 0 ? producto.price - 10 + 1 : producto.price - 100 + 1 : 0
-        }else{
+        } else {
             return 0;
         }
     }
@@ -113,23 +113,23 @@ const Auction = () => {
 
     return (
         <>
-            <Snackbar open={msg !== ""} autoHideDuration={6000}  onClose={() => setMsg("")}>
-                <Alert severity="success" variant="filled"  sx={{ width: '100%'}}>
+            <Snackbar open={msg !== ""} autoHideDuration={6000} onClose={() => setMsg("")}>
+                <Alert severity="success" variant="filled" sx={{ width: '100%' }}>
                     {msg}
                 </Alert>
             </Snackbar>
             <Grid container height="inherit%" justifyContent="space-between" gap={5} alignContent="center" alignItems="center">
-                <NavBar hideLinks={false}/>
+                <NavBar hideLinks={false} />
                 <Grid container display="flex" justifyContent="space-around" direction="row" alignContent="center"
-                      alignItems="center" sx={{backgroundColor: "#FFFFFF", border: 1, borderColor: 'primary.main'}} borderRadius={3} gap={5} padding={3}>
+                    alignItems="center" sx={{ backgroundColor: "#FFFFFF", border: 1, borderColor: 'primary.main' }} borderRadius={3} gap={5} padding={3}>
                     <Grid item>
                         <Grid container justifyContent="center" alignContent="center">
-                            <img height="100%" object-fit="cover" src={Image}/>
+                            <img height="100%" object-fit="cover" src={Image} />
                         </Grid>
                     </Grid>
                     <Grid item>
                         <Box
-                            sx={{ backgroundColor: "#FFFFFF"}}>
+                            sx={{ backgroundColor: "#FFFFFF" }}>
                             <Grid>
                                 <Box sx={{ marginLeft: "60px", paddingTop: 2 }}>
                                     <h1 style={HeaderStyle} >{producto?.title}</h1>
@@ -166,7 +166,7 @@ const Auction = () => {
                                         <Stack gap={4}>
                                             <Button variant="contained" startIcon={<LocalMallIcon />} sx={{ width: "70%", height: "5vh", boxShadow: "7px 7px #888888" }} onClick={() => compraDirecta(producto)}>Adquirir a precio de cierre</Button>
                                             <Stack direction="row" gap={2}>
-                                                <Button variant="outlined" startIcon={<GavelIcon />} sx={{ width: "30%", height: "5vh"}} onClick={() => pujar(producto)}>Puja</Button>
+                                                <Button variant="outlined" startIcon={<GavelIcon />} sx={{ width: "30%", height: "5vh" }} onClick={() => pujar(producto)}>Puja</Button>
                                                 <TextField
                                                     id="precioDePuja"
                                                     label="Number"
@@ -175,9 +175,9 @@ const Auction = () => {
                                                         shrink: true,
                                                     }}
                                                     defaultValue={pujaMasAlta(producto) + 1}
-                                                    sx={{height: "5vh"}}
+                                                    sx={{ height: "5vh" }}
                                                     variant="filled"
-                                                    onChange={(e) => {setPuja(Number(e.target.value))}}
+                                                    onChange={(e) => { setPuja(Number(e.target.value)) }}
                                                 />
                                             </Stack>
                                         </Stack>

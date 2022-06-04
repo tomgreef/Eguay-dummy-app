@@ -1,9 +1,6 @@
 # Mejoras 
 
 ## Por hacer
-
-
-- Información pago: Hacer validaciones sobre campos de input
 - Información pago: añadir información de dirección y facturación (esta última puede ser igual a dirección) antes de ir a la página de pago (ya que para el pago se necesita estos detalles)
 - Registro: No permitir carácteres raros (regular expression)
 - Lista de subasta: crear una página donde se ven todas las subastas creadas por mí
@@ -19,9 +16,9 @@
 - Registro: Añadir notificación de registro o inicio sesión ha sido completado
 - Subir el proyecto a Netlify y pasar comprobador de accesibilidad
 - Subasta: al cambiar el precio de subasta se cambia la fecha, hay que arreglar esto
+- Pago: Añadir validación a dirección de envío
 
 ## Hechas
-
 - Index: Quitar botones de comprar ahora y puja, por algo como: ver producto
 - Añadir subasta: Mejorar lista de opciones, quizas añadir campo de "Otros"
 - Añadir subasta: Url de foro opcional.
@@ -42,4 +39,5 @@
 - Información de pago: distinguir entre una compra y una puja
 - Información pago: añadir resumen de compra después de datos de tarjeta, para verificar y confirmar la compra luego
 - Añadir subasta: Desabilitar campos de checkbox cuando no están marcados
+- Información pago: Hacer validaciones sobre campos de input
 
