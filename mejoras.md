@@ -2,7 +2,7 @@
 
 ## Por hacer
 
-- Añadir subasta: Desabilitar campos de checkbox cuando no están marcados
+
 - Información pago: Hacer validaciones sobre campos de input
 - Información pago: añadir información de dirección y facturación (esta última puede ser igual a dirección) antes de ir a la página de pago (ya que para el pago se necesita estos detalles)
 - Registro: No permitir carácteres raros (regular expression)
@@ -18,6 +18,7 @@
 - Añadir subasta: hacer que se selecte 1 de los checkboxes
 - Registro: Añadir notificación de registro o inicio sesión ha sido completado
 - Subir el proyecto a Netlify y pasar comprobador de accesibilidad
+- Subasta: al cambiar el precio de subasta se cambia la fecha, hay que arreglar esto
 
 ## Hechas
 
@@ -40,4 +41,5 @@
 - Información pago: No marcado por defecto para el checkbox de guardar tarjeta.
 - Información de pago: distinguir entre una compra y una puja
 - Información pago: añadir resumen de compra después de datos de tarjeta, para verificar y confirmar la compra luego
+- Añadir subasta: Desabilitar campos de checkbox cuando no están marcados
 

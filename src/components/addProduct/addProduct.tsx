@@ -2,10 +2,7 @@ import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import { Container, Paper, Divider, Box, FormControl, InputLabel, Input, InputAdornment, Stack, Button } from '@mui/material';
-import { AccountCircle } from '@mui/icons-material';
+import { Container, Paper, Divider, Box, FormControl, InputLabel, Input, InputAdornment, Stack, Button, Checkbox } from '@mui/material';
 import EuroIcon from '@mui/icons-material/Euro';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -89,9 +86,11 @@ const mystyle = {
     margin: "1px"
 };
 
-export default function AddressForm() {
+export default function CrearProducto() {
     const navigate = useNavigate()
     const [currency, setCurrency] = React.useState('EUR');
+    const [isCompraDirecta, setIsCompraDirecta] = React.useState(false);
+    const [isPuja, setIsPuja] = React.useState(false);
 
     const createProduct = () => {
         navigate("/producto?id=1&success=Subasta+guardada")
@@ -258,25 +257,25 @@ export default function AddressForm() {
                                     alignItems="flex-end"
                                     gap={4}
                                 >
-                                    <Stack sx={{ m: 1 }} direction="row" gap={1} >
-                                        <input type="checkbox" style={mystyle} />
+                                    <Grid item>
+                                        <Checkbox checked={isCompraDirecta} onChange={() => setIsCompraDirecta(!isCompraDirecta)} />
                                         Precio de compra directa
-                                    </Stack>
+                                    </Grid>
 
-                                    <TextField
-                                        sx={{ m: 1 }}
-                                        id="input-with-icon-textfield"
-
-                                        InputProps={{
-                                            startAdornment: (
-                                                <InputAdornment position="start">
-                                                    <EuroIcon />
-                                                </InputAdornment>
-                                            ),
-                                        }}
-                                        variant="standard"
-                                    />
-
+                                    <Grid item sx={{ m: 1 }} direction="row" gap={1} >
+                                        <TextField
+                                            id="input-with-icon-textfield"
+                                            disabled={!isCompraDirecta}
+                                            InputProps={{
+                                                startAdornment: (
+                                                    <InputAdornment position="start">
+                                                        <EuroIcon />
+                                                    </InputAdornment>
+                                                ),
+                                            }}
+                                            variant="standard"
+                                        />
+                                    </Grid>
 
                                 </Grid>
 
@@ -284,31 +283,26 @@ export default function AddressForm() {
                                     direction="row"
                                     justifyContent="flex-start"
                                     alignItems="flex-end"
-                                    margin="normal"
                                     gap={4}
-                                    sx={{ m: 0 }}
                                 >
-                                    {/* <FormControlLabel
-                            sx={{ m: -1  }}
-                            control={<Checkbox color="primary" name="PrecioDeCompra" value="yes"/>}
-                            label="La puja se la lleva el mejor postor el "
-
-                        /> */}
-                                    <Stack sx={{ m: 1 }} direction="row" gap={1} >
-                                        <input type="checkbox" style={mystyle} />
+                                    <Grid item>
+                                        <Checkbox checked={isPuja} onChange={() => setIsPuja(!isPuja)} />
                                         La puja se la lleva el mejor postor el
-                                    </Stack>
-                                    <LocalizationProvider dateAdapter={AdapterDateFns}>
-                                        <DateTimePicker
-                                            renderInput={(props) => <TextField {...props} />}
+                                    </Grid>
 
-                                            value={value}
-                                            onChange={(newValue) => {
-                                                setValue(newValue);
-                                            }}
+                                    <Grid item>
+                                        <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                            <DateTimePicker
+                                                renderInput={(props) => <TextField {...props} />}
+                                                disabled={!isPuja}
+                                                value={value}
+                                                onChange={(newValue) => {
+                                                    setValue(newValue);
+                                                }}
 
-                                        />
-                                    </LocalizationProvider>
+                                            />
+                                        </LocalizationProvider>
+                                    </Grid>
                                 </Grid>
                                 <Grid >
                                     <Button variant="contained" onClick={createProduct}>Añadir</Button>
