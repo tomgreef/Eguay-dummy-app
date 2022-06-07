@@ -97,7 +97,7 @@ const Pago: FC = () => {
                                 <Grid item>{compraDirecta}</Grid>
                             </Grid>
                             <Grid container justifyContent="flex-start" alignContent="flex-end" direction="row" gap={1}>
-                                <Grid item><Typography variant='h3'>{compraDirecta ? "Precio final del producto" : "Puja"}:</Typography></Grid>
+                                <Grid item><Typography variant='h3'>{!!!compraDirecta ? "Precio final del producto" : "Puja"}:</Typography></Grid>
                                 <Grid item>{precio}€</Grid>
                             </Grid>
                             <Grid container justifyContent="flex-start" alignContent="flex-end" direction="row" gap={1}>
@@ -105,7 +105,7 @@ const Pago: FC = () => {
                                 <Grid item>{3}€</Grid>
                             </Grid>
                             <Grid container justifyContent="flex-start" alignContent="flex-end" direction="row" gap={1}>
-                                <Grid item><Typography variant='h3'>{compraDirecta ? "Precio a pagar" : "Dinero a retener"}:</Typography></Grid>
+                                <Grid item><Typography variant='h3'>{!!!compraDirecta ? "Precio a pagar" : "Dinero a retener"}:</Typography></Grid>
                                 <Grid item>{precio + 3}€</Grid>
                             </Grid>
                         </Stack>

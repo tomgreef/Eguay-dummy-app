@@ -2,15 +2,8 @@
 
 ## No hacer
 - Perfil: Crear datos de usuario, dirección de entrega y dirección de envio
-
-## Por hacer
-- Añadir subasta: Precio inicial no puedes estar por encima de compra directa
-- Añadir subasta: limitar los campos
-- Añadir subasta: validación de campos (precio no puede ser negativo)
-- Añadir subasta: fecha no puede ser anterior a fecha actual
-- Subir el proyecto a Netlify y pasar comprobador de accesibilidad
-- Pago: Añadir validación a dirección de envío
 - Crear puja/compra: Autocompletar dirección de envio (Dependencia de tarea de perfil, se guarda en localStorage esta dirección y se cargan los datos en el arranque del componente (UseEffect))
+- Pago: Añadir validación a dirección de envío
 
 ## Hechas
 - Index: Quitar botones de comprar ahora y puja, por algo como: ver producto
@@ -43,3 +36,8 @@
 - Lista de subasta: crear una página donde se ven todas las subastas creadas por mí
 - Añadir subasta: hacer que se selecte 1 de los checkboxes
 - Mis pujas: crear una página donde se ven mis pujas, cuanto tiempo queda y cuanto he pujado
+- Añadir subasta: Precio inicial no puedes estar por encima de compra directa
+- Subir el proyecto a Netlify y pasar comprobador de accesibilidad
+- Añadir subasta: limitar los campos
+- Añadir subasta: validación de campos (precio no puede ser negativo)
+- Añadir subasta: fecha no puede ser anterior a fecha actual

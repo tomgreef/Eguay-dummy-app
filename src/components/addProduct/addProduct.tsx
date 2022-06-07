@@ -2,13 +2,14 @@ import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import { Container, Paper, Box, InputAdornment, Stack, Button, Checkbox } from '@mui/material';
+import { Container, Paper, Box, InputAdornment, Stack, Button, Checkbox, FormControl } from '@mui/material';
 import EuroIcon from '@mui/icons-material/Euro';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../app/Footer';
+import NavBar from '../app/NavBar';
 
 const currencies = [
     {
@@ -77,37 +78,61 @@ const currencies = [
     },
 ];
 
-const mystyle = {
-    top: "5px",
-    width: "25px",
-    height: "20px",
-    border: "solid white",
-    margin: "1px"
-};
 
 export default function CrearProducto() {
     const navigate = useNavigate()
     const [currency, setCurrency] = React.useState('EUR');
     const [isCompraDirecta, setIsCompraDirecta] = React.useState(true);
     const [isPuja, setIsPuja] = React.useState(false);
+    const [precioInicial, setPrecioInicial] = React.useState("")
+    const [precioCompra, setPrecioCompra] = React.useState("")
+    const [date, setDate] = React.useState<Date | null>(new Date())
+
+    const [error, setError] = React.useState("")
 
     const createProduct = () => {
+        if (parseInt(precioInicial) < 0 || (isCompraDirecta && parseInt(precioCompra) < 0)) {
+            setError("Precios no pueden ser valores negativos");
+            return
+        }
+        if (!isCompraDirecta && !isPuja) {
+            setError("Seleccione una de las casillas");
+            return
+        }
+        if (isCompraDirecta && (parseInt(precioCompra) <= parseInt(precioInicial))) {
+            setError("Precio de compra no puede ser igual o menor que la puja inicial");
+            return
+        }
+        if (isCompraDirecta && precioCompra === "") {
+            setError("Introduzca un precio de compra directa");
+            return
+        }
+        if (isPuja && !date) {
+            setError("Seleccione una fecha de fin de puja");
+            return
+        }
+        if (isPuja && date && (date <= new Date())) {
+            setError("La fecha no puede ser inferior a la fecha actual");
+            return
+        }
         navigate("/producto?id=1&success=Subasta+guardada")
     }
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setCurrency(event.target.value);
     };
-    const [value, setValue] = React.useState<Date | null>(new Date());
+    ;
 
     return (
         <>
-            <Container component="main" sx={{ mb: 4, width: "40%" }}>
-                <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, border: 1, borderColor: 'primary.main', p: { xs: 2, md: 3 } }}>
-                    <Typography variant="h1">Añadir puja</Typography>
+            <NavBar />
+            <Container component="main" sx={{ mb: 4, width: "50%" }}>
+                <Paper variant="outlined" sx={{ marginTop: 2, border: 1, borderColor: 'primary.main', p: { xs: 2, md: 3 } }}>
+                    <Typography variant="h1">Añadir Subasta</Typography>
                     <Grid container spacing={3}>
                         <Grid item xs={12} sx={{ ma: 4 }}>
                             <TextField
+                                fullWidth
                                 required
                                 id="Titulo"
                                 name="Titulo"
@@ -115,11 +140,12 @@ export default function CrearProducto() {
                                 margin="normal"
                                 autoComplete="given-name"
                                 variant="filled"
+                                inputProps={{ maxLength: 26 }}
                             />
-
                         </Grid>
                         <Grid item xs={12} sx={{ ma: 4 }} >
                             <TextField
+                                fullWidth
                                 id="URL"
                                 name="URL"
                                 label="URL de la foto"
@@ -127,32 +153,10 @@ export default function CrearProducto() {
                                 autoComplete="family-name"
                                 variant="filled" />
                         </Grid>
-                        <Grid item xs={12} sm={7}  >
-                            <TextField
-                                id="filled-select-currency-native"
-                                select
-                                value={currency}
-                                onChange={handleChange}
-                                inputProps={{ min: 0 }}
-                                margin="normal"
-                                SelectProps={{
-                                    native: true,
-                                }}
-                                helperText="Selecciona la categoria deseada"
-                                variant="filled"
-
-                            >
-                                {currencies.map((option) => (
-                                    <option key={option.value} value={option.value}>
-                                        {option.label}
-                                    </option>
-                                ))}
-                            </TextField>
-                        </Grid>
-
                         <Grid item xs={12}>
                             <TextField
                                 required
+                                fullWidth
                                 id="Descripcion"
                                 name="Descripcion"
                                 label="Descripcion"
@@ -160,15 +164,36 @@ export default function CrearProducto() {
                                 rows={3}
                                 margin="normal"
                                 autoComplete="shipping address-line1"
-                                variant="filled" />
+                                variant="filled" inputProps={{ maxLength: 255 }} />
 
                         </Grid>
-                        <Grid item xs={12}>
-                            <Box sx={{ '& > :not(style)': { m: 1 } }}>
+                        <Grid container xs={12} sx={{ marginTop: 2 }} justifyContent="space-between" direction="row" alignContent="center">
+                            <Grid item>
+
+                                <TextField id="filled-select-currency-native"
+                                    select
+                                    fullWidth
+                                    value={currency}
+                                    onChange={handleChange}
+                                    sx={{ marginLeft: 3 }}
+                                    SelectProps={{
+                                        native: true,
+                                    }}
+                                    helperText="Selecciona la categoria deseada"
+                                    variant="filled"
+                                >
+                                    {currencies.map((option) => (
+                                        <option key={option.value} value={option.value}>
+                                            {option.label}
+                                        </option>
+                                    ))}
+                                </TextField>
+
+                            </Grid><Grid>
                                 <TextField
                                     id="input-with-icon-textfield"
                                     label="Puja mínima"
-
+                                    fullWidth
                                     InputProps={{
                                         startAdornment: (
                                             <InputAdornment position="start">
@@ -177,76 +202,10 @@ export default function CrearProducto() {
                                         ),
                                     }}
                                     variant="filled"
+                                    value={precioInicial}
+                                    onChange={(e) => setPrecioInicial(e.target.value)}
                                 />
-                            </Box >
-                        </Grid>
-                        <Grid item xs={12} sx={{ ma: 4 }} >
-                            <TextField
-                                required
-                                id="URL"
-                                name="URL"
-                                label="URL de la foto"
-                                fullWidth
-                                margin="normal"
-                                autoComplete="family-name"
-                                variant="filled" />
-                        </Grid>
-                        <Grid item xs={12} sm={7}  >
-                            <TextField
-                                id="filled-select-currency-native"
-                                select
-                                value={currency}
-                                onChange={handleChange}
-                                fullWidth
-                                inputProps={{ min: 0 }}
-                                margin="normal"
-                                SelectProps={{
-                                    native: true,
-
-                                }}
-                                helperText="Selecciona la categoria deseada"
-                                variant="filled"
-
-                            >
-                                {currencies.map((option) => (
-                                    <option key={option.value} value={option.value}>
-                                        {option.label}
-                                    </option>
-                                ))}
-                            </TextField>
-                        </Grid>
-
-                        <Grid item xs={12}>
-                            <TextField
-                                required
-                                id="Descripcion"
-                                name="Descripcion"
-                                label="Descripcion"
-                                fullWidth
-                                multiline
-                                rows={3}
-                                margin="normal"
-                                autoComplete="shipping address-line1"
-                                variant="filled" />
-
-                        </Grid>
-                        <Grid item xs={12}>
-                            <Box sx={{ '& > :not(style)': { m: 1 } }}>
-                                <TextField
-                                    id="input-with-icon-textfield"
-                                    label="Precio inicial"
-
-                                    InputProps={{
-                                        startAdornment: (
-                                            <InputAdornment position="start">
-                                                <EuroIcon />
-                                            </InputAdornment>
-                                        ),
-                                    }}
-                                    variant="filled"
-                                />
-
-                            </Box>
+                            </Grid>
                         </Grid>
                         <Grid item xs={12}   >
                             <Stack spacing={5}>
@@ -273,6 +232,9 @@ export default function CrearProducto() {
                                                 ),
                                             }}
                                             variant="standard"
+                                            value={precioCompra}
+                                            onChange={(e) => setPrecioCompra(e.target.value)}
+                                            error={parseInt(precioCompra) <= parseInt(precioInicial)}
                                         />
                                     </Grid>
 
@@ -294,9 +256,9 @@ export default function CrearProducto() {
                                             <DateTimePicker
                                                 renderInput={(props) => <TextField {...props} />}
                                                 disabled={!isPuja}
-                                                value={value}
+                                                value={date}
                                                 onChange={(newValue) => {
-                                                    setValue(newValue);
+                                                    setDate(newValue);
                                                 }}
 
                                             />
@@ -304,13 +266,14 @@ export default function CrearProducto() {
                                     </Grid>
                                 </Grid>
                                 <Grid >
+                                    <Typography sx={{ color: "primary.main" }}>{!!error ? error : null}</Typography>
                                     <Button variant="contained" onClick={createProduct}>Añadir</Button>
                                 </Grid>
                             </Stack>
                         </Grid>
                     </Grid>
                 </Paper>
-            </Container>
+            </Container >
             <Footer />
         </>
     );

@@ -31,6 +31,7 @@ const Index = () => {
     if (msg !== null) {
       setMsg(msg);
     }
+    setSearchParams("")
   }, [])
 
 
