@@ -103,7 +103,7 @@ const MyAuction = () => {
                     alignItems="center" sx={{ backgroundColor: "#FFFFFF", border: 1, borderColor: 'primary.main', marginLeft: 4, marginRight: 4 }} borderRadius={3} gap={5} padding={3}>
                     <Grid item>
                         <Grid container justifyContent="center" alignContent="center">
-                            <img height="100%" object-fit="cover" src={Image} />
+                            <img height="100%" object-fit="cover" src={Image} alt={producto?.description} />
                         </Grid>
                     </Grid>
                     <Grid item>

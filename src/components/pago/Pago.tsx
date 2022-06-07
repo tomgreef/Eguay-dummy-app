@@ -174,7 +174,7 @@ const Pago: FC = () => {
                                         <Typography variant='h1'>Pago verificado por </Typography>
                                     </Grid>
                                     <Grid item><img height="80px"
-                                        src="http://uscardsystems.com/wp-content/uploads/2016/05/verifone-logo-primary-pos-2color.png" />
+                                        src="http://uscardsystems.com/wp-content/uploads/2016/05/verifone-logo-primary-pos-2color.png" alt="Verifone payment logo" />
                                     </Grid>
                                 </Grid>
                             </Stack>

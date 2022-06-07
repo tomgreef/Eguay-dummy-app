@@ -38,7 +38,7 @@ const NavBar: FC<NavBarProps> = ({ hideLinks }) => {
             <AppBar position="static" sx={{ bgcolor: "background.default" }} elevation={0}>
                 <Toolbar sx={{ flexGrow: 1, padding: 2, justifyContent: "space-between" }}>
                     <Link to={"/"}>
-                        <img src="./img/logo.jpg" alt="Logo" height={60} width={200} />
+                        <img src="./img/logo.jpg" alt="Logo Egauy" height={60} width={200} />
                     </Link>
                     {hideLinks ? null : user ?
                         <Box >
