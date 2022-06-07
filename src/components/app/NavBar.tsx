@@ -1,5 +1,5 @@
 import { AppBar, Box, Button, Toolbar } from '@mui/material'
-import {Link, useNavigate} from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { FC, useEffect, useState } from 'react'
 import * as React from "react";
 
@@ -9,6 +9,7 @@ interface NavBarProps {
 
 const NavBar: FC<NavBarProps> = ({ hideLinks }) => {
     const [user, setUser] = useState<string | null>(null)
+    const navigate = useNavigate()
 
     useEffect(() => {
         setUser(localStorage.getItem('activeUser'))
@@ -17,9 +18,8 @@ const NavBar: FC<NavBarProps> = ({ hideLinks }) => {
     const signOut = () => {
         localStorage.removeItem("activeUser")
         setUser(null)
+        navigate("/?success=Sesión+cerrada")
     }
-
-    const navigate = useNavigate();
 
     function nuevaSubasta() {
         navigate("/crearProducto")
@@ -33,8 +33,8 @@ const NavBar: FC<NavBarProps> = ({ hideLinks }) => {
                         <img src="./img/logo.jpg" alt="Logo" height={60} width={200} />
                     </Link>
                     {hideLinks ? null : user ?
-                        <Box>
-                            <Button variant="contained" onClick={nuevaSubasta}>Nueva Subasta</Button>
+                        <Box >
+                            <Button variant="contained" onClick={nuevaSubasta} style={{ marginRight: 4 }}>Nueva Subasta</Button>
                             {/* <Link to="/perfil" style={{ textDecoration: "none", marginRight: 4 }}><Button color='secondary' >Mi Perfil</Button></Link> */}
                             <Button onClick={() => signOut()}>Cerrar Sesión</Button>
                         </Box>

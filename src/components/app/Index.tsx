@@ -59,8 +59,12 @@ const Index = () => {
 
   return (
     <>
-      <Snackbar open={msg !== ""} autoHideDuration={6000}  onClose={() => setMsg("")}>
-        <Alert severity="success" sx={{ width: '100%' }}>
+      <Snackbar open={msg !== ""} autoHideDuration={6000} onClose={() => setMsg("")}
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "center"
+        }}>
+        <Alert severity="success" sx={{ width: '100%', fontSize: 20, marginTop: 4 }}>
           {msg}
         </Alert>
       </Snackbar>
@@ -71,7 +75,7 @@ const Index = () => {
           {productos.map((producto: Producto) => {
             return (
               <Grid item key={producto.id} xs={12} sm={6} md={4} lg={3}>
-                <Card sx={{ minHeight: 600, maxHeight: 600 }} onClick={() => navigate("/producto?id=" + producto.id)}>
+                <Card sx={{ minHeight: 520, maxHeight: 520 }} onClick={() => navigate("/producto?id=" + producto.id)}>
                   <CardMedia
                     component="img"
                     height="200"
@@ -85,11 +89,11 @@ const Index = () => {
                     <Typography variant="body2" color="text.secondary" sx={{ height: 80 }}>
                       {producto.description}
                     </Typography>
-                    <Typography variant="h3" color="text.secondary" sx={{ height: 40, color: "black", alignSelf: "center" }}>
-                      Precio actual ${producto.price}
+                    <Typography variant="h3" color="text.secondary" sx={{ height: 40, color: "black" }}>
+                      Puja mas alta: ${producto.price}
                     </Typography>
                     <Typography variant="h2" color="secondary.main" sx={{ height: 50 }}>
-                      Paga  <Box color="primary.main" component="div" sx={{ display: 'inline' }}>${producto.price + 100}</Box> y te lo llevas
+                      Precio de compra: <Box color="primary.main" component="div" sx={{ display: 'inline' }}>${producto.price + 100}</Box>
                     </Typography>
                     <Typography color="text.secondary" sx={{ height: 50, color: "black", fontSize: 15 }}>
                       Queda: {remainingTime(randomDate(new Date(), new Date(2022, 6, 12)))}

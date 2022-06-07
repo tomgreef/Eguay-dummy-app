@@ -40,7 +40,7 @@ const Login: FC = () => {
         localStorage.setItem('user', username);
         localStorage.setItem('password', password);
         localStorage.setItem('activeUser', username);
-        navigate("/")
+        navigate("/?success=Sesión+iniciada")
     }
 
     return (
