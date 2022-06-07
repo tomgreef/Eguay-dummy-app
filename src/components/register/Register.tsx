@@ -2,6 +2,7 @@ import { FC, useState } from 'react'
 import { Box, TextField, Card, Button, FormControl, Grid, Typography } from '@mui/material'
 import { Link, useNavigate } from 'react-router-dom'
 import NavBar from '../app/NavBar'
+import { validName } from '../../context/validation'
 
 const Register: FC = () => {
     const navigate = useNavigate()
@@ -15,20 +16,28 @@ const Register: FC = () => {
     const register = () => {
 
         if (!!!username) {
-            setUsernameError("Username is empty")
+            setUsernameError("Usuario está vacío")
             return
         } else
             setUsernameError("")
         if (!!!password) {
-            setPasswordError("Password is empty")
+            setPasswordError("Contraseña está vacío")
             return
         } else
             setPasswordError("")
 
+        if (!validName.test(username)) {
+            setUsernameError("Formato de usuario incorrecto")
+            return
+        } else
+            setUsernameError("")
+
         if (password !== confirmPassword) {
-            setPasswordError("Passwords do not match")
+            setPasswordError("Contraseñas no coinciden")
             return
         }
+
+
 
         localStorage.setItem('user', username);
         localStorage.setItem('password', password);

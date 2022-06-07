@@ -13,27 +13,27 @@ const Login: FC = () => {
 
     const signIn = () => {
         if (!!!username) {
-            setUsernameError("Username is empty")
+            setUsernameError("Usuario está vacío")
             return
         } else
             setUsernameError("")
 
         if (!!!password) {
-            setPasswordError("Password is empty")
+            setPasswordError("Contraseña está vacío")
             return
         } else
             setPasswordError("")
 
         const localUsername = localStorage.getItem('user');
         if (localUsername === null || localUsername !== username.toLowerCase()) {
-            setUsernameError("Username does not exist")
+            setUsernameError("Usuario no existe")
             return
         } else
             setUsernameError("")
 
         const localPassword = localStorage.getItem("password");
         if (localPassword !== password) {
-            setPasswordError("Wrong password")
+            setPasswordError("Contraseña incorrecta")
             return
         }
 
