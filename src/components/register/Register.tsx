@@ -3,8 +3,10 @@ import { Box, TextField, Card, Button, FormControl, Grid, Typography } from '@mu
 import { Link, useNavigate } from 'react-router-dom'
 import NavBar from '../app/NavBar'
 import { validName } from '../../context/validation'
+import { useTitle } from '../..'
 
 const Register: FC = () => {
+    useTitle("Registrarse - Eguay")
     const navigate = useNavigate()
     const [username, setUsername] = useState<string>();
     const [password, setPassword] = useState<string>();

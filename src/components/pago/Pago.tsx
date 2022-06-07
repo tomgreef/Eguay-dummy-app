@@ -10,8 +10,10 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { validCreditCard, validCVC, validName } from '../../context/validation';
+import { useTitle } from '../..'
 
 const Pago: FC = () => {
+    useTitle("Pago - Eguay")
     const [value, setValue] = React.useState<Date | null>(
         new Date(),
     );

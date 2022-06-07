@@ -5,6 +5,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Footer from '../app/Footer';
 import NavBar from '../app/NavBar';
+import { useTitle } from '../..'
 
 export type Producto = {
     id: number,
@@ -21,6 +22,7 @@ export type Producto = {
 }
 
 const MyAuctions = () => {
+    useTitle("Mis Subastas - Eguay")
     const navigate = useNavigate()
     const productos: Producto[] = Productos.products.slice(3, 10);
     const [searchParams, setSearchParams] = useSearchParams();

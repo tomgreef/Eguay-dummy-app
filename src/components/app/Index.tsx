@@ -5,6 +5,7 @@ import NavBar from './NavBar';
 import Productos from "../../context/productos.json"
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useTitle } from '../..';
 
 export type Producto = {
   id: number,
@@ -21,10 +22,12 @@ export type Producto = {
 }
 
 const Index = () => {
+  useTitle("Inicio - Eguay")
   const navigate = useNavigate()
   const productos: Producto[] = Productos.products;
   const [searchParams, setSearchParams] = useSearchParams();
   const [msg, setMsg] = useState<string>("");
+
 
   useEffect(() => {
     const msg = searchParams.get("success");

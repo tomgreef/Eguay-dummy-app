@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import Index from './components/app/Index';
 import './index.css';
@@ -18,6 +18,16 @@ import MyPujas from './components/auction/MyPujas';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+export function useTitle(title: string) {
+  useEffect(() => {
+    const prevTitle = document.title
+    document.title = title
+    return () => {
+      document.title = prevTitle
+    }
+  })
+}
 
 // Incrementales de 4
 const theme = createTheme({

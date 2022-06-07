@@ -10,6 +10,7 @@ import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../app/Footer';
 import NavBar from '../app/NavBar';
+import { useTitle } from '../..'
 
 const currencies = [
     {
@@ -80,6 +81,7 @@ const currencies = [
 
 
 export default function CrearProducto() {
+    useTitle("Añadir subasta - Eguay")
     const navigate = useNavigate()
     const [currency, setCurrency] = React.useState('EUR');
     const [isCompraDirecta, setIsCompraDirecta] = React.useState(true);

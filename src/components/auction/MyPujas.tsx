@@ -5,6 +5,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Footer from '../app/Footer';
 import NavBar from '../app/NavBar';
+import { useTitle } from '../..'
 
 export type Producto = {
     id: number,
@@ -21,6 +22,7 @@ export type Producto = {
 }
 
 const MyPujas = () => {
+    useTitle("Mis Pujas - Eguay")
     const navigate = useNavigate()
     const productosActivos: Producto[] = Productos.products.slice(9, 13);
     const productosInactivos: Producto[] = Productos.products.slice(14, 16);

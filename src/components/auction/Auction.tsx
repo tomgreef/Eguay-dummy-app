@@ -8,7 +8,7 @@ import Footer from '../app/Footer';
 import { Producto } from "../app/Index";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-
+import { useTitle } from '../..'
 
 const HeaderStyle = {
     fontFamily: 'Roboto',
@@ -39,6 +39,7 @@ const HeaderStyle2 = {
 };
 
 const Auction = () => {
+    useTitle("Producto - Eguay")
     const productos: Producto[] = Productos.products;
     const [searchParams, setSearchParams] = useSearchParams();
     const [puja, setPuja] = useState<number>();

@@ -2,8 +2,10 @@ import { FC, useState } from 'react'
 import { Box, TextField, Card, Button, FormControl, Grid, Typography, Checkbox, FormControlLabel } from '@mui/material'
 import { Link, useNavigate } from 'react-router-dom'
 import NavBar from '../app/NavBar'
+import { useTitle } from '../..'
 
 const Login: FC = () => {
+    useTitle("Login - Eguay")
     const navigate = useNavigate()
     const [username, setUsername] = useState<string>();
     const [password, setPassword] = useState<string>();
