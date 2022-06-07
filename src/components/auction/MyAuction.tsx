@@ -1,4 +1,4 @@
-import { Button, Grid, Stack, Typography } from "@mui/material";
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Stack, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import NavBar from "../app/NavBar";
 import Productos from "../../context/productos.json"
@@ -7,6 +7,7 @@ import { Producto } from "../app/Index";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useTitle } from '../..'
+import React from "react";
 
 const HeaderStyle = {
     fontFamily: 'Roboto',
@@ -41,6 +42,7 @@ const MyAuction = () => {
     const productos: Producto[] = Productos.products;
     const [searchParams, setSearchParams] = useSearchParams();
     const [puja, setPuja] = useState<number>();
+    const [open, setOpen] = React.useState(false);
 
     const randomDate = (start: Date, end: Date) => {
         return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
@@ -97,6 +99,27 @@ const MyAuction = () => {
 
     return (
         <>
+            <Dialog
+                open={open}
+                onClose={() => setOpen(false)}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+            >
+                <DialogTitle id="alert-dialog-title">
+                    {`Borrar subasta: ${producto?.title}`}
+                </DialogTitle>
+                <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                        ¿Estás seguro que quieres borrar esta subasta?
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={() => setOpen(false)}>Cancelar</Button>
+                    <Button onClick={() => eliminar()} autoFocus variant="contained">
+                        Borrar Subasta
+                    </Button>
+                </DialogActions>
+            </Dialog>
             <Grid container height="inherit%" justifyContent="space-between" gap={5} alignContent="center" alignItems="center">
                 <NavBar hideLinks={false} />
                 <Grid container display="flex" justifyContent="center" direction="row" alignContent="center"
@@ -145,7 +168,7 @@ const MyAuction = () => {
                                         <Stack gap={4}>
                                             <Button variant="contained" sx={{ width: "70%", height: "5vh", boxShadow: "7px 7px #888888" }} onClick={() => cerrar()}>Cerrar Puja</Button>
                                             <Stack direction="row" gap={2}>
-                                                <Button variant="outlined" sx={{ width: "30%", height: "6vh" }} onClick={() => eliminar()}>Eliminar Puja</Button>
+                                                <Button variant="outlined" sx={{ width: "30%", height: "6vh" }} onClick={() => setOpen(true)}>Eliminar Puja</Button>
 
                                             </Stack>
                                         </Stack>

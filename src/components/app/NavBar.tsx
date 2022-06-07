@@ -1,4 +1,4 @@
-import { AppBar, Box, Button, Toolbar } from '@mui/material'
+import { AppBar, Box, Button, Theme, Toolbar, useMediaQuery } from '@mui/material'
 import { Link, useNavigate } from 'react-router-dom'
 import { FC, useEffect, useState } from 'react'
 import * as React from "react";
@@ -8,6 +8,7 @@ interface NavBarProps {
 }
 
 const NavBar: FC<NavBarProps> = ({ hideLinks }) => {
+    const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
     const [user, setUser] = useState<string | null>(null)
     const navigate = useNavigate()
 
@@ -45,7 +46,6 @@ const NavBar: FC<NavBarProps> = ({ hideLinks }) => {
                             <Button onClick={nuevaSubasta} style={{ marginRight: 8 }}>Nueva Subasta</Button>
                             <Button variant="contained" onClick={misSubastas} style={{ marginRight: 8 }}>Mis Subastas</Button>
                             <Button variant="contained" onClick={misPujas} style={{ marginRight: 8 }}>Mis Pujas</Button>
-                            {/* <Link to="/perfil" style={{ textDecoration: "none", marginRight: 4 }}><Button color='secondary' >Mi Perfil</Button></Link> */}
                             <Button onClick={() => signOut()}>Cerrar Sesión</Button>
                         </Box>
                         :
