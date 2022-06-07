@@ -2,13 +2,12 @@ import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import { Container, Paper, Divider, Box, FormControl, InputLabel, Input, InputAdornment, Stack, Button, Checkbox } from '@mui/material';
+import { Container, Paper, Box, InputAdornment, Stack, Button, Checkbox } from '@mui/material';
 import EuroIcon from '@mui/icons-material/Euro';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
-import { Navigate, useNavigate } from 'react-router-dom';
-import NavBar from '../app/NavBar';
+import { useNavigate } from 'react-router-dom';
 import Footer from '../app/Footer';
 
 const currencies = [
@@ -89,7 +88,7 @@ const mystyle = {
 export default function CrearProducto() {
     const navigate = useNavigate()
     const [currency, setCurrency] = React.useState('EUR');
-    const [isCompraDirecta, setIsCompraDirecta] = React.useState(false);
+    const [isCompraDirecta, setIsCompraDirecta] = React.useState(true);
     const [isPuja, setIsPuja] = React.useState(false);
 
     const createProduct = () => {

@@ -1,9 +1,7 @@
-import { Alert, Button, Grid, Snackbar, Stack, TextField, Typography } from "@mui/material";
+import { Button, Grid, Stack, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import NavBar from "../app/NavBar";
 import Productos from "../../context/productos.json"
-import LocalMallIcon from '@mui/icons-material/LocalMall';
-import GavelIcon from '@mui/icons-material/Gavel';
 import Footer from '../app/Footer';
 import { Producto } from "../app/Index";
 import { useNavigate, useSearchParams } from "react-router-dom";
@@ -38,7 +36,7 @@ const HeaderStyle2 = {
     color: '#000000',
 };
 
-const Auction = () => {
+const MyAuction = () => {
     const productos: Producto[] = Productos.products;
     const [searchParams, setSearchParams] = useSearchParams();
     const [puja, setPuja] = useState<number>();
@@ -72,20 +70,11 @@ const Auction = () => {
 
     const navigate = useNavigate()
 
-    const compraDirecta = (producto: Producto | undefined) => {
-        let precio: any;
-        if (producto !== null && producto !== undefined) {
-            precio = producto.price;
-        } else {
-            precio = 0;
-        }
-        navigate("/pago?precio=" + precio + "&compra=Directa")
+    const eliminar = () => {
+        navigate("/?success=Subasta+eliminada")
     }
-    const pujar = (producto: Producto | undefined) => {
-        navigate("/pago?precio=" + getPuja(producto) + "&compra=Puja")
-    }
-    function getPuja(producto: Producto | undefined) {
-        return puja == undefined ? pujaMasAlta(producto) + 1 : puja;
+    const cerrar = () => {
+        navigate("/?success=Subasta+cerrada")
     }
 
     function pujaMasAlta(producto: Producto | undefined) {
@@ -107,11 +96,6 @@ const Auction = () => {
 
     return (
         <>
-            <Snackbar open={msg !== ""} autoHideDuration={6000} onClose={() => setMsg("")}>
-                <Alert severity="success" variant="filled" sx={{ width: '100%' }}>
-                    {msg}
-                </Alert>
-            </Snackbar>
             <Grid container height="inherit%" justifyContent="space-between" gap={5} alignContent="center" alignItems="center">
                 <NavBar hideLinks={false} />
                 <Grid container display="flex" justifyContent="center" direction="row" alignContent="center"
@@ -158,21 +142,10 @@ const Auction = () => {
 
                                         </Stack>
                                         <Stack gap={4}>
-                                            <Button variant="contained" startIcon={<LocalMallIcon />} sx={{ width: "70%", height: "5vh", boxShadow: "7px 7px #888888" }} onClick={() => compraDirecta(producto)}>Adquirir a precio de cierre</Button>
+                                            <Button variant="contained" sx={{ width: "70%", height: "5vh", boxShadow: "7px 7px #888888" }} onClick={() => cerrar()}>Cerrar Puja</Button>
                                             <Stack direction="row" gap={2}>
-                                                <Button variant="outlined" startIcon={<GavelIcon />} sx={{ width: "30%", height: "6vh" }} onClick={() => pujar(producto)}>Puja</Button>
-                                                <TextField
-                                                    id="precioDePuja"
-                                                    label="Number"
-                                                    type="number"
-                                                    InputLabelProps={{
-                                                        shrink: true,
-                                                    }}
-                                                    defaultValue={pujaMasAlta(producto) + 1}
-                                                    sx={{ height: "5vh" }}
-                                                    variant="filled"
-                                                    onChange={(e) => { setPuja(Number(e.target.value)) }}
-                                                />
+                                                <Button variant="outlined" sx={{ width: "30%", height: "6vh" }} onClick={() => eliminar()}>Eliminar Puja</Button>
+
                                             </Stack>
                                         </Stack>
                                         <br></br>
@@ -188,4 +161,4 @@ const Auction = () => {
     );
 };
 
-export default Auction;
+export default MyAuction;

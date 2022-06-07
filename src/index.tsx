@@ -11,6 +11,9 @@ import Product from './components/auction/Auction';
 import AddProduct from './components/addProduct/addProduct';
 import { CssBaseline } from '@mui/material';
 import Pago from "./components/pago/Pago";
+import MyAuctions from './components/auction/MyAuctions';
+import MyAuction from './components/auction/MyAuction';
+import MyPujas from './components/auction/MyPujas';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -75,7 +78,10 @@ root.render(
           <Route path="/iniciarSesion" element={<Login />} />
           <Route path="/registrar" element={<Register />} />
           <Route path="/crearProducto" element={<AddProduct />} />
+          <Route path="/misSubastas" element={<MyAuctions />} />
+          <Route path="/misPujas" element={<MyPujas />} />
           <Route path="/producto" element={<Product />} />
+          <Route path="/miProducto" element={<MyAuction />} />
           <Route path="/pago" element={<Pago />} />
         </Routes>
       </Router>

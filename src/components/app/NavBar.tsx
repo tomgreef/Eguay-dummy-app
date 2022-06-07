@@ -25,6 +25,14 @@ const NavBar: FC<NavBarProps> = ({ hideLinks }) => {
         navigate("/crearProducto")
     }
 
+    function misSubastas() {
+        navigate("/misSubastas")
+    }
+
+    function misPujas() {
+        navigate("/misPujas")
+    }
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static" sx={{ bgcolor: "background.default" }} elevation={0}>
@@ -34,7 +42,9 @@ const NavBar: FC<NavBarProps> = ({ hideLinks }) => {
                     </Link>
                     {hideLinks ? null : user ?
                         <Box >
-                            <Button variant="contained" onClick={nuevaSubasta} style={{ marginRight: 8 }}>Nueva Subasta</Button>
+                            <Button onClick={nuevaSubasta} style={{ marginRight: 8 }}>Nueva Subasta</Button>
+                            <Button variant="contained" onClick={misSubastas} style={{ marginRight: 8 }}>Mis Subastas</Button>
+                            <Button variant="contained" onClick={misPujas} style={{ marginRight: 8 }}>Mis Pujas</Button>
                             {/* <Link to="/perfil" style={{ textDecoration: "none", marginRight: 4 }}><Button color='secondary' >Mi Perfil</Button></Link> */}
                             <Button onClick={() => signOut()}>Cerrar Sesión</Button>
                         </Box>

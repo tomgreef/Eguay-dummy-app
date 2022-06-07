@@ -1,18 +1,16 @@
 # Mejoras 
 
-## Por hacer
-- Información pago: añadir información de dirección y facturación (esta última puede ser igual a dirección) antes de ir a la página de pago (ya que para el pago se necesita estos detalles)
-- Lista de subasta: crear una página donde se ven todas las subastas creadas por mí
-- Mis pujas: crear una página donde se ven mis pujas, cuanto tiempo queda y cuanto he pujado
-- Añadir subasta: Precio inicial no puedes estar por encima de compra directa
+## No hacer
 - Perfil: Crear datos de usuario, dirección de entrega y dirección de envio
+
+## Por hacer
+- Añadir subasta: Precio inicial no puedes estar por encima de compra directa
 - Añadir subasta: limitar los campos
 - Añadir subasta: validación de campos (precio no puede ser negativo)
 - Añadir subasta: fecha no puede ser anterior a fecha actual
-- Añadir subasta: hacer que se selecte 1 de los checkboxes
 - Subir el proyecto a Netlify y pasar comprobador de accesibilidad
-- Subasta: al cambiar el precio de subasta se cambia la fecha, hay que arreglar esto
 - Pago: Añadir validación a dirección de envío
+- Crear puja/compra: Autocompletar dirección de envio (Dependencia de tarea de perfil, se guarda en localStorage esta dirección y se cargan los datos en el arranque del componente (UseEffect))
 
 ## Hechas
 - Index: Quitar botones de comprar ahora y puja, por algo como: ver producto
@@ -40,3 +38,8 @@
 - Registro: cambiar mensajes de error a español
 - Registro: No permitir carácteres raros (regular expression)
 - Login: cambiar mensajes de error a español
+- Subasta: al cambiar el precio de subasta se cambia la fecha, hay que arreglar esto
+- Información pago: añadir información de dirección y facturación (esta última puede ser igual a dirección) antes de ir a la página de pago (ya que para el pago se necesita estos detalles)
+- Lista de subasta: crear una página donde se ven todas las subastas creadas por mí
+- Añadir subasta: hacer que se selecte 1 de los checkboxes
+- Mis pujas: crear una página donde se ven mis pujas, cuanto tiempo queda y cuanto he pujado
