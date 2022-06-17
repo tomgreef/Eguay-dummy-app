@@ -1,6 +1,7 @@
 import { AppBar, Box, Button, Theme, Toolbar, useMediaQuery } from '@mui/material'
 import { Link, useNavigate } from 'react-router-dom'
 import { FC, useEffect, useState } from 'react'
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import * as React from "react";
 
 interface NavBarProps {
@@ -43,7 +44,7 @@ const NavBar: FC<NavBarProps> = ({ hideLinks }) => {
                     </Link>
                     {hideLinks ? null : user ?
                         <Box >
-                            <Button onClick={nuevaSubasta} style={{ marginRight: 8 }}>Nueva Subasta</Button>
+                            <Button variant="outlined" onClick={nuevaSubasta} style={{ marginRight: 8 }}>Nueva Subasta<AddCircleOutlineIcon style={{ marginLeft: 4 }} /></Button>
                             <Button variant="contained" onClick={misSubastas} style={{ marginRight: 8 }}>Mis Subastas</Button>
                             <Button variant="contained" onClick={misPujas} style={{ marginRight: 8 }}>Mis Pujas</Button>
                             <Button onClick={() => signOut()}>Cerrar Sesión</Button>

@@ -115,7 +115,7 @@ const MyAuction = () => {
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={() => setOpen(false)}>Cancelar</Button>
-                    <Button onClick={() => eliminar()} autoFocus variant="contained">
+                    <Button onClick={() => eliminar()} autoFocus variant="outlined">
                         Borrar Subasta
                     </Button>
                 </DialogActions>
